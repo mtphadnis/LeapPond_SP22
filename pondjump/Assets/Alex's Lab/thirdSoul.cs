@@ -108,6 +108,8 @@ public class thirdSoul : MonoBehaviour
     public GameObject[] LaunchIconsPlaced;
     public GameObject[] LaunchIconsPlacedBG;
 
+    public bool Pause;
+
     [Space(10)]
     [Header("Grapple")]
     [Tooltip("If active [Secondary] will use grappling hood instead of Launch/Catch Runes")]
@@ -142,7 +144,7 @@ public class thirdSoul : MonoBehaviour
         SoulSwitch(true);
         groundRadiusStored = GroundRadius;
 
-        HealthUI = GameObject.Find("HealthUI").GetComponent<Image>();
+        //HealthUI = GameObject.Find("HealthUI").GetComponent<Image>();
 
         for(int i = 0; i < MaxLaunchCatchRunes; i++)
         {
@@ -151,7 +153,7 @@ public class thirdSoul : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        LaunchIndicatorCheck(0);
+        //LaunchIndicatorCheck(0);
     }
 
     private void FixedUpdate()
@@ -161,6 +163,7 @@ public class thirdSoul : MonoBehaviour
         Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         runeTimer++;
         Healing();
+        Pausing();
 
         //Debug.Log("Rigid Velocity: " + rigidBody.velocity.magnitude + " Controller Velocity: " + controller.velocity.magnitude);
     }
@@ -200,9 +203,9 @@ public class thirdSoul : MonoBehaviour
     void Healing()
     {
         Damage += !inPain && Damage > 0 ? HealthGain : 0;
-        var tempColor = HealthUI.color;
-        tempColor.a = Damage;
-        HealthUI.color = tempColor;
+        //var tempColor = HealthUI.color;
+        //tempColor.a = Damage;
+        //HealthUI.color = tempColor;
         //HealthUI.fillAmount = Damage;
     }
 
@@ -283,25 +286,25 @@ public class thirdSoul : MonoBehaviour
 
     public void Scroll(InputAction.CallbackContext context)
     {
-        if(context.performed)
-        {
-            scrollPosition += ((context.ReadValue<Vector2>().y) / 120);
-            launchScroll = (int)(Math.Abs(scrollPosition%MaxLaunchCatchRunes));
+        //if(context.performed)
+        //{
+        //    scrollPosition += ((context.ReadValue<Vector2>().y) / 120);
+        //    launchScroll = (int)(Math.Abs(scrollPosition%MaxLaunchCatchRunes));
 
-            LaunchIndicatorCheck(launchScroll);
+        //    //LaunchIndicatorCheck(launchScroll);
             
-            if(LCRuneSets[launchScroll] != null)
-            {
-                LaunchCatchTemp[0] = LCRuneSets[launchScroll];
-                LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
-            }
-            else
-            {
-                LaunchCatchTemp[0] = null;
-                LaunchCatchTemp[1] = null;
-            }
+        //    if(LCRuneSets[launchScroll] != null)
+        //    {
+        //        LaunchCatchTemp[0] = LCRuneSets[launchScroll];
+        //        LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
+        //    }
+        //    else
+        //    {
+        //        LaunchCatchTemp[0] = null;
+        //        LaunchCatchTemp[1] = null;
+        //    }
             
-        }
+        //}
     }
 
     //if the player is rising at all
@@ -491,6 +494,28 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch"); 
         }
+    }
+    public void Pausing()
+    {
+        //float temp = firstPersonControls.Player.Paused.ReadValue<float>();
+        //Debug.Log("Pause2: " + temp);
+        //if(temp == 0)
+        //{
+        //    Pause = false;
+        //}
+        //else
+        //{
+        //    Pause = true;
+        //}
+
+    }
+
+    public void Paused(InputAction.CallbackContext context)
+    {
+        Debug.Log("Pause1: " + Pause);
+        if (context.started) { Pause = true; }
+        else if (context.canceled) { Pause = false; }
+
     }
 
     void LaunchIndicatorCheck(float active)

@@ -9,8 +9,7 @@ using StarterAssets;
 public class pausemenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
-    public PlayerInput playerinput;
-    public StarterAssetsInputs starterAssets;
+    public thirdSoul thirdSoul;
     public GameObject crosshairCanvas;
     private bool isPaused = false;
     float LastPressTime = 0;
@@ -18,26 +17,24 @@ public class pausemenu : MonoBehaviour
 
     public void PauseActions()
     {
-        if(starterAssets.pause)
+        if(thirdSoul.Pause)
             {
             
-            if (!isPaused && LastPressTime > PressDelay)
+            if (!isPaused)
             {
-                Time.timeScale = 0;
-                pauseCanvas.SetActive(true);
+               // Time.timeScale = 0;
+               pauseCanvas.SetActive(true);
                 crosshairCanvas.SetActive(false);
-                playerinput.SwitchCurrentActionMap("UI");
                 Debug.Log("Game Paused");
                 isPaused = true;
-                LastPressTime = 0;
+                //LastPressTime = 0;
             }
 
-            else if (isPaused && LastPressTime > PressDelay)
+            else if (isPaused)
             {
-                Time.timeScale = 1;
-                pauseCanvas.SetActive(false);
+               // Time.timeScale = 1;
+             pauseCanvas.SetActive(false);
                 crosshairCanvas.SetActive(true);
-                playerinput.SwitchCurrentActionMap("Player");
                 //InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
                 Debug.Log("Game Unpaused");
                 isPaused = false;
@@ -45,10 +42,6 @@ public class pausemenu : MonoBehaviour
 
             }
         
-        }
-        if (LastPressTime < PressDelay)
-        {
-            LastPressTime += Time.deltaTime;
         }
 
 
