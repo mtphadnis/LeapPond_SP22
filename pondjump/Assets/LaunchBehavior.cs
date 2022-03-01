@@ -13,6 +13,7 @@ public class LaunchBehavior : MonoBehaviour
     public float LaunchClampMin;
     public float LaunchClampMax;
     public float VelocityNumeratorConstant;
+    public float CatchHieghtNumeratorConstant;
     float timer;
 
     private void Start()
@@ -58,7 +59,7 @@ public class LaunchBehavior : MonoBehaviour
             if (other.tag == "Player")
             {
                 Vector3 VelocityMultiplier = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? SprintMultiplier : WalkMultiplier;
-                Vector3 TargetHeight = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? Vector3.zero : Vector3.up * (2 / (Catch.transform.position.y - transform.position.y));
+                Vector3 TargetHeight = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? Vector3.zero : Vector3.up * (CatchHieghtNumeratorConstant / (Catch.transform.position.y - transform.position.y));
                 //Debug.Log("Rigid Velocity: " + other.GetComponent<Rigidbody>().velocity.magnitude + " Controller Velocity: " + other.GetComponent<CharacterController>().velocity.magnitude);
 
                 timer = 0;

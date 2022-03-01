@@ -8852,6 +8852,7 @@ MonoBehaviour:
   AirStrafeSpeed: 0.5
   AirStrafeClamp: 15
   SpeedChangeRate: 3
+  gravity: 0.5
   mouseSensitivity: 2.5
   RuneRefresh: 15
   Damage: 0

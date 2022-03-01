@@ -54,6 +54,10 @@ public class thirdSoul : MonoBehaviour
     public float AirStrafeClamp;
     [Tooltip("The rate by which all speed increases progressively")]
     public float SpeedChangeRate;
+    [Tooltip("Gravity for the character controller component")]
+    public float gravity;
+    //Player vertical speed
+    float vertSpeed;
     //the actual player speed
     float speed;
     //whether shift and ctrl are being held
@@ -350,10 +354,11 @@ public class thirdSoul : MonoBehaviour
             inputDirection = transform.right * firstPersonControls.Player.Move.ReadValue<Vector2>().x + transform.forward * firstPersonControls.Player.Move.ReadValue<Vector2>().y;
         }
 
-
+        vertSpeed -= gravity * Time.deltaTime;
 
         // move the player horizontal and vertical
-        if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        if (controller.enabled) { inputDirection.y = vertSpeed; controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        //if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
         else if (!controller.enabled) { rigidBody.AddForce(Vector3.ClampMagnitude(inputDirection.normalized * (speed * Time.deltaTime * AirStrafeSpeed), AirStrafeClamp));}
     }
 
