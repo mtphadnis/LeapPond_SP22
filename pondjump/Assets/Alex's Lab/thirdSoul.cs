@@ -512,9 +512,9 @@ public class thirdSoul : MonoBehaviour
 
     public void Paused(InputAction.CallbackContext context)
     {
-        Debug.Log("Pause: " + Pause);
-        if (context.performed) { Pause = true; }
-        else { Pause = false; }
+        Debug.Log("Pause1: " + Pause);
+        if (context.started) { Pause = true; }
+        else if (context.canceled) { Pause = false; }
 
     }
 
