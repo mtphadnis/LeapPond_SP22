@@ -54,6 +54,10 @@ public class thirdSoul : MonoBehaviour
     public float AirStrafeClamp;
     [Tooltip("The rate by which all speed increases progressively")]
     public float SpeedChangeRate;
+    [Tooltip("Gravity for the character controller component")]
+    public float gravity;
+    //Player vertical speed
+    float vertSpeed;
     //the actual player speed
     float speed;
     //whether shift and ctrl are being held
@@ -160,7 +164,7 @@ public class thirdSoul : MonoBehaviour
     {
         WhatsUnder();
         Move();
-        Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
+        //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         runeTimer++;
         Healing();
         Pausing();
@@ -353,10 +357,11 @@ public class thirdSoul : MonoBehaviour
             inputDirection = transform.right * firstPersonControls.Player.Move.ReadValue<Vector2>().x + transform.forward * firstPersonControls.Player.Move.ReadValue<Vector2>().y;
         }
 
-
+        vertSpeed -= gravity * Time.deltaTime;
 
         // move the player horizontal and vertical
-        if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        if (controller.enabled) { inputDirection.y = vertSpeed; controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        //if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
         else if (!controller.enabled) { rigidBody.AddForce(Vector3.ClampMagnitude(inputDirection.normalized * (speed * Time.deltaTime * AirStrafeSpeed), AirStrafeClamp));}
     }
 
@@ -402,7 +407,7 @@ public class thirdSoul : MonoBehaviour
     private void spawn_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers | ~RuneLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce" && grappleActive) 
@@ -442,7 +447,7 @@ public class thirdSoul : MonoBehaviour
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers | ~RuneLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce")
