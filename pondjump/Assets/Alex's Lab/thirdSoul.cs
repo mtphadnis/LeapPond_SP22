@@ -103,7 +103,7 @@ public class thirdSoul : MonoBehaviour
     [Tooltip("The multiplier for the addForce on Launch triggers")]
     public Vector3 LaunchStrength;
     public List<GameObject> BounceRunes;
-    // List<GameObject> LaunchCatchRunes;
+    public float RuneRange;
 
     public GameObject[] LaunchCatchStorage;
     public GameObject[] LaunchCatchTemp;
@@ -415,7 +415,7 @@ public class thirdSoul : MonoBehaviour
     private void spawn_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~PlayerLayers) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce" && grappleActive) 
@@ -455,7 +455,7 @@ public class thirdSoul : MonoBehaviour
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~PlayerLayers) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce")
