@@ -460,7 +460,7 @@ MonoBehaviour:
   AimAssistRadius: 2
   whatIsGrappleable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
   gunTip: {fileID: 558369842}
   camera: {fileID: 1220024903}
   player: {fileID: 2109785947}
@@ -504,9 +504,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -8844,7 +8842,9 @@ MonoBehaviour:
   GroundRadius: 0.6
   offGroundTimerEnd: 0.33
   offGroundTimer: 0
+  FeetTouching: []
   ResetPoint: {x: 46, y: 5, z: -103}
+  PublicVector3: {x: 0, y: 0, z: 0}
   Cube: {fileID: 2000669764750121505, guid: 6a6fe8a8b48b23241bd716c7d27aa7da, type: 3}
   JumpHeight: 7
   movementSpeed: 600
@@ -8852,7 +8852,7 @@ MonoBehaviour:
   AirStrafeSpeed: 0.5
   AirStrafeClamp: 15
   SpeedChangeRate: 3
-  gravity: 0.5
+  TargetGravity: -0.15
   mouseSensitivity: 2.5
   RuneRefresh: 15
   Damage: 0
@@ -9141,15 +9141,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109785942}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -158.67, y: 8.81, z: -49.13}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -160.5, y: 12.49, z: -54.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1416273737}
   - {fileID: 1220024903}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2109785948
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9165,7 +9165,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 3
 --- !u!1 &2131865457
 GameObject:
   m_ObjectHideFlags: 0

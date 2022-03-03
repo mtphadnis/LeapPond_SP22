@@ -30,7 +30,7 @@ public class LaunchBehavior : MonoBehaviour
         if(Catch != null)
         {
             Debug.DrawLine(transform.position, Catch.transform.position, Color.yellow);
-            Debug.DrawLine(transform.position, Catch.transform.position + (Vector3.up * (Catch.transform.position.y - transform.position.y)), Color.green);
+            Debug.DrawLine(transform.position, Catch.transform.position + (Vector3.up * (CatchHieghtNumeratorConstant / (Catch.transform.position.y - transform.position.y))), Color.green);
         }
         
     }
@@ -60,14 +60,16 @@ public class LaunchBehavior : MonoBehaviour
             {
                 Vector3 VelocityMultiplier = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? SprintMultiplier : WalkMultiplier;
                 Vector3 TargetHeight = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? Vector3.zero : Vector3.up * (CatchHieghtNumeratorConstant / (Catch.transform.position.y - transform.position.y));
-                //Debug.Log("Rigid Velocity: " + other.GetComponent<Rigidbody>().velocity.magnitude + " Controller Velocity: " + other.GetComponent<CharacterController>().velocity.magnitude);
+                Debug.Log("Rigid Velocity: " + other.GetComponent<Rigidbody>().velocity.magnitude + " Controller Velocity: " + other.GetComponent<CharacterController>().velocity.magnitude);
 
                 timer = 0;
                 Player.GetComponent<thirdSoul>().LaunchStart();
                 other.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+
+
                 other.GetComponent<Rigidbody>().AddForce(Vector3.Scale(Catch.transform.position - transform.position, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Distance(Catch.transform.position, transform.position) + 20)) + 3));
-                //other.GetComponent<Rigidbody>().AddForce(Vector3.ClampMagnitude(Vector3.Scale(Catch.transform.position - transform.position, Vector3.Scale(_LaunchStrength, VelocityMultiplier) * Vector3.Distance(Catch.transform.position, transform.position)), LaunchClampMax));
-                //other.GetComponent<Rigidbody>().AddForce(Vector3.Scale(Catch.transform.position - transform.position, Vector3.Scale(_LaunchStrength, VelocityMultiplier) * Vector3.Distance(Catch.transform.position, transform.position)));
+
                 Debug.Log("Difference: " + (Catch.transform.position - transform.position) + "Distance: " + Vector3.Distance(Catch.transform.position, transform.position) + " Multiplier: " + ((VelocityNumeratorConstant / (Vector3.Distance(Catch.transform.position, transform.position) + 20)) + 3) + " Launch: " + Vector3.Scale(Catch.transform.position - transform.position, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Distance(Catch.transform.position, transform.position) + 20)) + 3));
             }
             else

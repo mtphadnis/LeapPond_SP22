@@ -28,11 +28,15 @@ public class thirdSoul : MonoBehaviour
     public float offGroundTimer;
     //basically whether the player should be a RigidBody or CharacterController
     bool Grounded;
+    public Collider[] FeetTouching;
+    bool startSwitch;
 
     [Space(10)]
     [Header("Debug Controls")]
     [Tooltip("Vector3 position to reset too")]
     public Vector3 ResetPoint;
+    [Tooltip("A Public Vector3")]
+    public Vector3 PublicVector3;
     [Tooltip("cube prefab")]
     public GameObject Cube;
 
@@ -55,7 +59,8 @@ public class thirdSoul : MonoBehaviour
     [Tooltip("The rate by which all speed increases progressively")]
     public float SpeedChangeRate;
     [Tooltip("Gravity for the character controller component")]
-    public float gravity;
+    public float TargetGravity;
+    float gravity;
     //Player vertical speed
     float vertSpeed;
     //the actual player speed
@@ -162,14 +167,14 @@ public class thirdSoul : MonoBehaviour
     {
         WhatsUnder();
         Move();
-        //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         runeTimer++;
         Healing();
 
+        //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         //Debug.Log("Rigid Velocity: " + rigidBody.velocity.magnitude + " Controller Velocity: " + controller.velocity.magnitude);
     }
 
-    
+
     private void LateUpdate()
     {
         if(offGroundTimer > 0.5)
@@ -227,21 +232,26 @@ public class thirdSoul : MonoBehaviour
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedHieght, transform.position.z);
         Grounded = Physics.CheckSphere(spherePosition, GroundRadius, GroundLayers, QueryTriggerInteraction.Ignore) || (Physics.CheckSphere(spherePosition, GroundRadius, RuneLayers, QueryTriggerInteraction.Ignore) && crouching);
 
-        Debug.DrawRay(transform.position - (Vector3.down / 5), Vector3.down, Color.red);
-
         if (Grounded && rigidBody.velocity.y == 0 && !Rising() && !jumping)
         {
+            gravity = Mathf.Lerp(gravity, TargetGravity, 0.01f);
             offGroundTimer = 0;
+            controller.Move(new Vector3(0, gravity, 0));
             Grounded = true;
             SoulSwitch(true);
         }
         else if(!Grounded && offGroundTimer < offGroundTimerEnd)
         {
+            gravity = Mathf.Lerp(gravity, TargetGravity, 0.01f);
             offGroundTimer += Time.deltaTime;
+            controller.Move(new Vector3(0, gravity, 0));
             Grounded = true;
+            startSwitch = true;
         }
         else if(!Grounded && offGroundTimer >= offGroundTimerEnd)
         {
+            if (startSwitch) { rigidBody.velocity = controller.velocity; startSwitch = false; }
+            gravity = 0;
             offGroundTimer += Time.deltaTime;
             Grounded = false;
             SoulSwitch(false);
@@ -354,10 +364,8 @@ public class thirdSoul : MonoBehaviour
             inputDirection = transform.right * firstPersonControls.Player.Move.ReadValue<Vector2>().x + transform.forward * firstPersonControls.Player.Move.ReadValue<Vector2>().y;
         }
 
-        vertSpeed -= gravity * Time.deltaTime;
-
         // move the player horizontal and vertical
-        if (controller.enabled) { inputDirection.y = vertSpeed; controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        if (controller.enabled) {controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
         //if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
         else if (!controller.enabled) { rigidBody.AddForce(Vector3.ClampMagnitude(inputDirection.normalized * (speed * Time.deltaTime * AirStrafeSpeed), AirStrafeClamp));}
     }

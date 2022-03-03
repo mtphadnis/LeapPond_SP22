@@ -260,6 +260,7 @@ MonoBehaviour:
   LaunchClampMin: -20
   LaunchClampMax: 20
   VelocityNumeratorConstant: 1000
+  CatchHieghtNumeratorConstant: 90
 --- !u!1 &7533488363869969693
 GameObject:
   m_ObjectHideFlags: 0
