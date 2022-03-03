@@ -28,11 +28,15 @@ public class thirdSoul : MonoBehaviour
     public float offGroundTimer;
     //basically whether the player should be a RigidBody or CharacterController
     bool Grounded;
+    public Collider[] FeetTouching;
+    bool startSwitch;
 
     [Space(10)]
     [Header("Debug Controls")]
     [Tooltip("Vector3 position to reset too")]
     public Vector3 ResetPoint;
+    [Tooltip("A Public Vector3")]
+    public Vector3 PublicVector3;
     [Tooltip("cube prefab")]
     public GameObject Cube;
 
@@ -54,6 +58,11 @@ public class thirdSoul : MonoBehaviour
     public float AirStrafeClamp;
     [Tooltip("The rate by which all speed increases progressively")]
     public float SpeedChangeRate;
+    [Tooltip("Gravity for the character controller component")]
+    public float TargetGravity;
+    float gravity;
+    //Player vertical speed
+    float vertSpeed;
     //the actual player speed
     float speed;
     //whether shift and ctrl are being held
@@ -94,7 +103,7 @@ public class thirdSoul : MonoBehaviour
     [Tooltip("The multiplier for the addForce on Launch triggers")]
     public Vector3 LaunchStrength;
     public List<GameObject> BounceRunes;
-    // List<GameObject> LaunchCatchRunes;
+    public float RuneRange;
 
     public GameObject[] LaunchCatchStorage;
     public GameObject[] LaunchCatchTemp;
@@ -160,15 +169,15 @@ public class thirdSoul : MonoBehaviour
     {
         WhatsUnder();
         Move();
-        Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         runeTimer++;
         Healing();
         Pausing();
 
+        //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         //Debug.Log("Rigid Velocity: " + rigidBody.velocity.magnitude + " Controller Velocity: " + controller.velocity.magnitude);
     }
 
-    
+
     private void LateUpdate()
     {
         if(offGroundTimer > 0.5)
@@ -226,21 +235,26 @@ public class thirdSoul : MonoBehaviour
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedHieght, transform.position.z);
         Grounded = Physics.CheckSphere(spherePosition, GroundRadius, GroundLayers, QueryTriggerInteraction.Ignore) || (Physics.CheckSphere(spherePosition, GroundRadius, RuneLayers, QueryTriggerInteraction.Ignore) && crouching);
 
-        Debug.DrawRay(transform.position - (Vector3.down / 5), Vector3.down, Color.red);
-
         if (Grounded && rigidBody.velocity.y == 0 && !Rising() && !jumping)
         {
+            gravity = Mathf.Lerp(gravity, TargetGravity, 0.01f);
             offGroundTimer = 0;
+            controller.Move(new Vector3(0, gravity, 0));
             Grounded = true;
             SoulSwitch(true);
         }
         else if(!Grounded && offGroundTimer < offGroundTimerEnd)
         {
+            gravity = Mathf.Lerp(gravity, TargetGravity, 0.01f);
             offGroundTimer += Time.deltaTime;
+            controller.Move(new Vector3(0, gravity, 0));
             Grounded = true;
+            startSwitch = true;
         }
         else if(!Grounded && offGroundTimer >= offGroundTimerEnd)
         {
+            if (startSwitch) { rigidBody.velocity = controller.velocity; startSwitch = false; }
+            gravity = 0;
             offGroundTimer += Time.deltaTime;
             Grounded = false;
             SoulSwitch(false);
@@ -353,10 +367,9 @@ public class thirdSoul : MonoBehaviour
             inputDirection = transform.right * firstPersonControls.Player.Move.ReadValue<Vector2>().x + transform.forward * firstPersonControls.Player.Move.ReadValue<Vector2>().y;
         }
 
-
-
         // move the player horizontal and vertical
-        if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        if (controller.enabled) {controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        //if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
         else if (!controller.enabled) { rigidBody.AddForce(Vector3.ClampMagnitude(inputDirection.normalized * (speed * Time.deltaTime * AirStrafeSpeed), AirStrafeClamp));}
     }
 
@@ -402,7 +415,7 @@ public class thirdSoul : MonoBehaviour
     private void spawn_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers | ~RuneLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~PlayerLayers) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce" && grappleActive) 
@@ -442,7 +455,7 @@ public class thirdSoul : MonoBehaviour
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, 100, ~PlayerLayers | ~RuneLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~PlayerLayers) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce")

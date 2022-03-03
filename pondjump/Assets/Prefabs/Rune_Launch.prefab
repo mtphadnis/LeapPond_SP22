@@ -255,10 +255,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Catch: {fileID: 0}
-  WalkMultiplier: {x: 1, y: 3, z: 1}
-  SprintMultiplier: {x: 2, y: 2, z: 2}
-  AddHeightMultiplier: 1.5
-  LaunchClamp: 2500
+  WalkMultiplier: {x: 1.25, y: 2.5, z: 1.25}
+  SprintMultiplier: {x: 3, y: 3, z: 3}
+  LaunchClampMin: -20
+  LaunchClampMax: 20
+  VelocityNumeratorConstant: 1000
+  CatchHieghtNumeratorConstant: 90
+  debugFloat01: 4
+  debugFloat02: 0
+  debugFloat03: 0
 --- !u!1 &7533488363869969693
 GameObject:
   m_ObjectHideFlags: 0
