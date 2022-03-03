@@ -22,6 +22,7 @@ public class thirdSoul : MonoBehaviour
     float groundRadiusStored;
     //the Ground layer
     LayerMask GroundLayers, RuneLayers, PlayerLayers;
+    public LayerMask RuneAble;
     [Tooltip("how long in seconds the player needs to be off the ground until the player is !Grounded")]
     public float offGroundTimerEnd;
     //the fluid timer that increases until offGroundTimerEnd
@@ -412,7 +413,7 @@ public class thirdSoul : MonoBehaviour
     private void spawn_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~PlayerLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, RuneAble) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce" && grappleActive) 
@@ -452,7 +453,7 @@ public class thirdSoul : MonoBehaviour
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~PlayerLayers) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, RuneAble) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
             if (type == "bounce")
