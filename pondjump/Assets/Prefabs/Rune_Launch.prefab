@@ -263,7 +263,7 @@ MonoBehaviour:
   CatchHieghtNumeratorConstant: 90
   debugFloat01: 4
   debugFloat02: 0
-  debugFloat03: 0
+  debugFloat03: 2
 --- !u!1 &7533488363869969693
 GameObject:
   m_ObjectHideFlags: 0
