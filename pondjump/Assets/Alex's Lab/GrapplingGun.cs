@@ -51,7 +51,7 @@ public class GrapplingGun : MonoBehaviour
     }
 
     //Called after Update
-    void Update()
+    void LateUpdate()
     {
         DrawRope();
     }
