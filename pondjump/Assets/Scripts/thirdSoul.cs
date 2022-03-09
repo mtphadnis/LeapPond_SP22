@@ -122,12 +122,14 @@ public class thirdSoul : MonoBehaviour
     public GameObject[] LaunchIconsPlaced;
     public GameObject[] LaunchIconsPlacedBG;
 
+
     [Space(10)]
     [Header("Grapple")]
     [Tooltip("If active [Secondary] will use grappling hood instead of Launch/Catch Runes")]
     public bool grappleActive;
     [Tooltip("Grappleing hook object")]
     public GameObject grapplingGun;
+    public bool Pause;
 
     private void Awake()
     {
@@ -217,7 +219,7 @@ public class thirdSoul : MonoBehaviour
         var tempColor = HealthUI.color;
         tempColor.a = Damage;
         HealthUI.color = tempColor;
-        //HealthUI.fillAmount = Damage;
+        HealthUI.fillAmount = Damage;
     }
 
 
@@ -515,6 +517,26 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch"); 
         }
+    }
+
+    public void Paused(InputAction.CallbackContext context)
+    {
+        Debug.Log("Pause: " + Pause);
+        if (context.started)
+        {
+            Pause = true;
+        }
+
+
+
+        else if (context.canceled)
+        {
+            Pause = false;
+        }
+
+        Cursor.lockState = CursorLockMode.Confined;
+
+
     }
 
     void LaunchIndicatorCheck(float active)
