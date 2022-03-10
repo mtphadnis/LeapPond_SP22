@@ -20,9 +20,8 @@ public class thirdSoul : MonoBehaviour
     public float GroundRadius;
     //stores the set radius
     float groundRadiusStored;
-    //the Ground layer
-    LayerMask GroundLayers, RuneLayers, PlayerLayers;
-    public LayerMask RuneAble;
+    [Tooltip("Layers the player can place runes on and layers that will enable the player controller")]
+    public LayerMask RuneAble, GroundAble;
     [Tooltip("how long in seconds the player needs to be off the ground until the player is !Grounded")]
     public float offGroundTimerEnd;
     //the fluid timer that increases until offGroundTimerEnd
@@ -129,13 +128,7 @@ public class thirdSoul : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         rigidBody = GetComponent<Rigidbody>();
-
-        GroundLayers = LayerMask.GetMask("Ground");
-        RuneLayers = LayerMask.GetMask("Rune");
-        PlayerLayers = LayerMask.GetMask("Player");
         runeBehavior = GetComponent<runeBehavior>();
-
-        
 
         firstPersonControls = new FirstPersonControls();
         firstPersonControls.Player.Enable();
@@ -189,6 +182,7 @@ public class thirdSoul : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        Debug.Log(other.name);
         if(other.transform.tag == "Deadly" && Damage < 0.33)
         {
             Damage = 0.33f;
@@ -231,7 +225,7 @@ public class thirdSoul : MonoBehaviour
     private void WhatsUnder()
     {
         Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedHieght, transform.position.z);
-        Grounded = Physics.CheckSphere(spherePosition, GroundRadius, GroundLayers, QueryTriggerInteraction.Ignore) || (Physics.CheckSphere(spherePosition, GroundRadius, RuneLayers, QueryTriggerInteraction.Ignore) && crouching);
+        Grounded = Physics.CheckSphere(spherePosition, GroundRadius, GroundAble, QueryTriggerInteraction.Ignore);
 
         if (Grounded && rigidBody.velocity.y == 0 && !Rising() && !jumping)
         {

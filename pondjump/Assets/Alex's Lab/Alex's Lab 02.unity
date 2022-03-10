@@ -47097,7 +47097,10 @@ MonoBehaviour:
   GroundRadius: 0.6
   RuneAble:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 5184
+  GroundAble:
+    serializedVersion: 2
+    m_Bits: 12608
   offGroundTimerEnd: 0.33
   offGroundTimer: 0
   FeetTouching: []

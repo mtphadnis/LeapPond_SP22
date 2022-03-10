@@ -16,6 +16,7 @@ public class LaunchBehavior : MonoBehaviour
     public float CatchHieghtNumeratorConstant;
     float timer;
     Vector3 difference;
+    public float SprintCheck;
 
     public float debugFloat01, debugFloat02, debugFloat03;
 
@@ -61,8 +62,8 @@ public class LaunchBehavior : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                Vector3 VelocityMultiplier = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? SprintMultiplier : WalkMultiplier;
-                Vector3 TargetHeight = (other.GetComponent<Rigidbody>().velocity.magnitude > 16 || other.GetComponent<CharacterController>().velocity.magnitude > 16) ? Vector3.zero : Vector3.up * (CatchHieghtNumeratorConstant / (Catch.transform.position.y - transform.position.y + debugFloat01) + debugFloat02) + new Vector3(0,debugFloat03,0);
+                Vector3 VelocityMultiplier = (other.GetComponent<Rigidbody>().velocity.magnitude > SprintCheck || other.GetComponent<CharacterController>().velocity.magnitude > SprintCheck) ? SprintMultiplier : WalkMultiplier;
+                Vector3 TargetHeight = (other.GetComponent<Rigidbody>().velocity.magnitude > SprintCheck || other.GetComponent<CharacterController>().velocity.magnitude > SprintCheck) ? Vector3.zero : Vector3.up * (CatchHieghtNumeratorConstant / (Catch.transform.position.y - transform.position.y + debugFloat01) + debugFloat02) + new Vector3(0,debugFloat03,0);
                 Debug.Log("Rigid Velocity: " + other.GetComponent<Rigidbody>().velocity.magnitude + " Controller Velocity: " + other.GetComponent<CharacterController>().velocity.magnitude);
 
                 timer = 0;

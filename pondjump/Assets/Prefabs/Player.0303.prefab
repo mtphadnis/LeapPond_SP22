@@ -3015,7 +3015,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 343
+    m_Bits: 1879
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3425,7 +3425,7 @@ GameObject:
   - component: {fileID: 1915330277763728206}
   - component: {fileID: 1915330277763728202}
   m_Layer: 7
-  m_Name: Player
+  m_Name: Player.0303
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3655,6 +3655,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundedHieght: -0.5
   GroundRadius: 0.6
+  RuneAble:
+    serializedVersion: 2
+    m_Bits: 0
   offGroundTimerEnd: 0.33
   offGroundTimer: 0
   FeetTouching: []
