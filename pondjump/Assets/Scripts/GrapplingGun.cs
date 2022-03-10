@@ -9,6 +9,7 @@ public class GrapplingGun : MonoBehaviour
     public float ropeLength;
     public float minPointMod;
     public float AimAssistRadius;
+    public float Refresh;
 
 
     private LineRenderer lr;
@@ -17,6 +18,7 @@ public class GrapplingGun : MonoBehaviour
     public Transform gunTip, camera, player;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    float refreshTimer;
 
     bool grappleActive, grappling;
     Transform StuckToo;
@@ -26,15 +28,17 @@ public class GrapplingGun : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         grappleActive = false;
+        refreshTimer = Refresh;
     }
 
     public void Grapple(InputAction.CallbackContext context)
     {
-        if (context.started && grappleActive)
+        if (context.started && grappleActive && refreshTimer >= Refresh)
         {
+            refreshTimer = 0;
             StartGrapple();
         }
-        else if (context.canceled && grappleActive)
+        else if (context.canceled)
         {
             StopGrapple();
         }
@@ -42,6 +46,8 @@ public class GrapplingGun : MonoBehaviour
 
     private void FixedUpdate()
     {
+        refreshTimer += refreshTimer < Refresh ? 1 : 0;
+
         if(grappling)
         {
             grapplePoint = StuckToo.position + StartingPoint;
@@ -77,7 +83,8 @@ public class GrapplingGun : MonoBehaviour
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
 
-            float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+            //float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+            float distanceFromPoint = 0;
 
             //The distance grapple will try to keep from grapple point. 
             joint.maxDistance = distanceFromPoint + ropeLength;
