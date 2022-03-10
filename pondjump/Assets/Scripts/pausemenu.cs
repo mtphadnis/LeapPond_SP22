@@ -8,53 +8,61 @@ using StarterAssets;
 
 public class pausemenu : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseCanvas;
-    public thirdSoul thirdSoul;
-    public GameObject crosshairCanvas;
-    private bool isPaused = false;
-    float LastPressTime = 0;
-    float PressDelay = 0.5f;
 
-    public void PauseActions()
+    public static bool paused = false;
+    public GameObject PauseCanvas1;
+    FirstPersonControls action;
+
+    private void Awake()
     {
-        if(thirdSoul.Pause)
-            {
-            
-            if (!isPaused)
-            {
-               // Time.timeScale = 0;
-               pauseCanvas.SetActive(true);
-                crosshairCanvas.SetActive(false);
-                Debug.Log("Game Paused");
-                isPaused = true;
-                //LastPressTime = 0;
-            }
+        action = new FirstPersonControls();
+    }
 
-            else if (isPaused)
-            {
-               // Time.timeScale = 1;
-             pauseCanvas.SetActive(false);
-                crosshairCanvas.SetActive(true);
-                //InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
-                Debug.Log("Game Unpaused");
-                isPaused = false;
-              
 
-            }
-        
+    private void OnEnable()
+    {
+        action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        action.Disable();
+    }
+
+    public void Start()
+    {
+        action.Player.Paused.performed += _ => DeterminePause();
+    }
+
+    private void DeterminePause()
+    {
+        if (paused)
+        {
+            Resume();
         }
-
-
-        Debug.Log("On Button Press");
-        Debug.Log("Last Press Time " + LastPressTime);
+        else
+        {
+            PauseGame();
+        }
     }
 
-
- private void Update()
+    public void PauseGame()
     {
-        PauseActions();
+        Time.timeScale = 0;
+        paused = true;
+        PauseCanvas1.SetActive(true);
+        
     }
 
+
+
+    public void Resume()
+    {
+
+        Time.timeScale = 1;
+        paused = false;
+        PauseCanvas1.SetActive(false);
+    }
 
 }
 

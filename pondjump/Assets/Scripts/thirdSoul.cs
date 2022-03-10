@@ -519,24 +519,11 @@ public class thirdSoul : MonoBehaviour
         }
     }
 
-    public void Paused(InputAction.CallbackContext context)
+    public void Update()
     {
-        Debug.Log("Pause: " + Pause);
-        if (context.started)
-        {
-            Pause = true;
-        }
-
-
-
-        else if (context.canceled)
-        {
-            Pause = false;
-        }
-
-        Cursor.lockState = CursorLockMode.Confined;
-
-
+        if (pausemenu.paused)
+            return;
+        
     }
 
     void LaunchIndicatorCheck(float active)

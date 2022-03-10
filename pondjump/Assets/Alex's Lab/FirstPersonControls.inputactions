@@ -95,11 +95,11 @@
                 },
                 {
                     "name": "Paused",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "359d3fd8-8473-43d4-a01b-0ad72e35abd2",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Key",
                     "processors": "",
-                    "interactions": "Press(pressPoint=1)"
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
