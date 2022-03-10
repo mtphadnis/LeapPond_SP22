@@ -260,6 +260,11 @@ public class thirdSoul : MonoBehaviour
         
     }
 
+    public void GrapplePhysics(InputAction.CallbackContext context)
+    {
+        rigidBody.velocity = rigidBody.velocity / 3;
+    }
+
     //Debugging position setter
     public void ResetPos(InputAction.CallbackContext context)
     {
