@@ -11,6 +11,7 @@ public class pausemenu : MonoBehaviour
 
     public static bool paused = false;
     public GameObject PauseCanvas1;
+    public GameObject AudioManager;
     FirstPersonControls action;
 
     private void Awake()
@@ -49,6 +50,8 @@ public class pausemenu : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        AudioListener.pause = true;
+        AudioManager.SetActive(false);
         paused = true;
         PauseCanvas1.SetActive(true);
         
@@ -60,6 +63,8 @@ public class pausemenu : MonoBehaviour
     {
 
         Time.timeScale = 1;
+        AudioListener.pause = false;
+        AudioManager.SetActive(true);
         paused = false;
         PauseCanvas1.SetActive(false);
     }

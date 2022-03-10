@@ -10375,17 +10375,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ca66d96f702a824c8aaa058d2a0886f, type: 3}
   m_PrefabInstance: {fileID: 463500352}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1233627258 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7511757700864794981, guid: 9e43537f2eb025c4db5a7b49f8b58bac, type: 3}
-  m_PrefabInstance: {fileID: 2023802114}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307328669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ae76c059a91bf41a1155b4b8c29ad7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1238081638 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2547ff9ab1d8c45c0b790071eb22efd5, type: 3}
@@ -13688,9 +13677,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8e45e836143264585ef97161493d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 467500813}
-  thirdSoul: {fileID: 1233627258}
-  crosshairCanvas: {fileID: 4601742656909763443}
+  PauseCanvas1: {fileID: 467500813}
+  AudioManager: {fileID: 1376462478}
 --- !u!4 &1931126060
 Transform:
   m_ObjectHideFlags: 0
@@ -14361,11 +14349,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &4601742656909763443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4601742657902161453, guid: 6f7520fb965b376438a89ccac383a813, type: 3}
-  m_PrefabInstance: {fileID: 1155222878}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &4601742657785249947 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4601742656791776709, guid: 6f7520fb965b376438a89ccac383a813, type: 3}
