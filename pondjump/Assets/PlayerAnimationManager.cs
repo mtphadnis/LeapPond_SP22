@@ -6,24 +6,28 @@ using UnityEngine.InputSystem;
 public class PlayerAnimationManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Animator mAnimator;
+    public Animator mAnimator;
+    
     void Start()
     {
         mAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
-    public void TRThrow(InputAction.CallbackContext context)
+    public void Throw(InputAction.CallbackContext context)
     {
         if(context.performed)
         {
             //whatever runs when ani starts
             //Debug.Log("hey");
 
-            Debug.Log("Throw");
+            Debug.Log("Hey");
 
-            mAnimator.SetTrigger("TRThrow");
+            //mAnimator.SetBool("Throw", true);
 
+            mAnimator.SetTrigger("Throw");
+
+            Debug.Log(mAnimator.gameObject.name); 
         }
         else if(context.canceled)
         {
