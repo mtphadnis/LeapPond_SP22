@@ -427,16 +427,16 @@ public class thirdSoul : MonoBehaviour
     private void spawn_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, RuneAble) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
         {
+            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
-            if (type == "bounce" && grappleActive) 
+            if (type == "bounce" && grappleActive && hit.transform.gameObject.layer == RuneAble) 
             {
                 BounceRunes.Add(Instantiate(bounceRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)));
                 BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform); 
             }
-            
-            else if (type == "launch" && grappleActive == false && LaunchCatchStorage[0] == null) 
+            else if (type == "launch" && grappleActive == false && LaunchCatchStorage[0] == null && hit.transform.gameObject.layer == RuneAble) 
             {
                 LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
@@ -448,7 +448,7 @@ public class thirdSoul : MonoBehaviour
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
             }
-            else if (type == "catch" && grappleActive == false && LaunchCatchStorage[1] == null) 
+            else if (type == "catch" && grappleActive == false && LaunchCatchStorage[1] == null && hit.transform.gameObject.layer == RuneAble) 
             {
                 LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
@@ -469,10 +469,10 @@ public class thirdSoul : MonoBehaviour
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, RuneAble) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
-            if (type == "bounce")
+            if (type == "bounce" && hit.transform.gameObject.layer == RuneAble)
             { 
                 BounceRunes[0].gameObject.transform.position = hit.point;
                 BounceRunes[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
@@ -481,13 +481,13 @@ public class thirdSoul : MonoBehaviour
                 BounceRunes.Add(placedRune);
                 placedRune.GetComponent<runeBehavior>().StickTo(hit.transform);
             }
-            else if(type == "launch")
+            else if(type == "launch" && hit.transform.gameObject.layer == RuneAble)
             {
                 LaunchCatchTemp[0].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
             }
-            else if(type == "catch")
+            else if(type == "catch" && hit.transform.gameObject.layer == RuneAble)
             {
                 LaunchCatchTemp[1].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
