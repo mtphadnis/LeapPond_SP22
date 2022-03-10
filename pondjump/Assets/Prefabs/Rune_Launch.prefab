@@ -261,7 +261,8 @@ MonoBehaviour:
   LaunchClampMax: 20
   VelocityNumeratorConstant: 1000
   CatchHieghtNumeratorConstant: 90
-  debugFloat01: 4
+  SprintCheck: 12
+  debugFloat01: 20
   debugFloat02: 0
   debugFloat03: 2
 --- !u!1 &7533488363869969693

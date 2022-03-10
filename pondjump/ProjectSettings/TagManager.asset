@@ -18,11 +18,11 @@ TagManager:
   - Ground
   - Player
   - Rune
-  - Wall
-  - Runeable_Independant
-  - 
-  - 
-  - 
+  - Nonruneable
+  - Runeable
+  - Grappleable
+  - RuneGround
+  - NonRuneGround
   - 
   - 
   - 
