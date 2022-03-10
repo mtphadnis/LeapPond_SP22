@@ -12,6 +12,10 @@ public class thirdSoul : MonoBehaviour
     private Rigidbody rigidBody;
     private GameObject mainCamera;
     private runeBehavior runeBehavior;
+    public AudioClip runeCast;
+    public AudioSource source;
+    public AudioClip catchCast;
+
 
     [Header("Ground Detections")]
     [Tooltip("The hieght of the sphereCheck at the players bottom")]
@@ -117,12 +121,14 @@ public class thirdSoul : MonoBehaviour
     public GameObject[] LaunchIconsPlaced;
     public GameObject[] LaunchIconsPlacedBG;
 
+
     [Space(10)]
     [Header("Grapple")]
     [Tooltip("If active [Secondary] will use grappling hood instead of Launch/Catch Runes")]
     public bool grappleActive;
     [Tooltip("Grappleing hook object")]
     public GameObject grapplingGun;
+    public bool Pause;
 
     private void Awake()
     {
@@ -207,7 +213,7 @@ public class thirdSoul : MonoBehaviour
         var tempColor = HealthUI.color;
         tempColor.a = Damage;
         HealthUI.color = tempColor;
-        //HealthUI.fillAmount = Damage;
+        HealthUI.fillAmount = Damage;
     }
 
 
@@ -252,6 +258,11 @@ public class thirdSoul : MonoBehaviour
             SoulSwitch(false);
         }
         
+    }
+
+    public void GrapplePhysics(InputAction.CallbackContext context)
+    {
+        rigidBody.velocity = rigidBody.velocity / 3;
     }
 
     //Debugging position setter
@@ -439,7 +450,9 @@ public class thirdSoul : MonoBehaviour
                     Array.Clear(LaunchCatchStorage, 0, 2);
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
+                source.PlayOneShot(catchCast);
             }
+
             
         }
     }
@@ -470,6 +483,8 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[1].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
+
+                source.PlayOneShot(catchCast);
             }
         }
     }
@@ -487,7 +502,9 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("launch"); 
         }
-        
+
+        source.PlayOneShot(runeCast);
+
     }
 
     public void Secondary(InputAction.CallbackContext context)
@@ -499,6 +516,13 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch"); 
         }
+    }
+
+    public void Update()
+    {
+        if (pausemenu.paused)
+            return;
+        
     }
 
     void LaunchIndicatorCheck(float active)
@@ -563,4 +587,14 @@ public class thirdSoul : MonoBehaviour
         Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedHieght, transform.position.z), GroundRadius);
     }
 
+    public void PlayerSounds()
+    {
+
+    }
+
+
+
+
+
 }
+

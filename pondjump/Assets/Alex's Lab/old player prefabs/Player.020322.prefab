@@ -284,6 +284,7 @@ MonoBehaviour:
   massScale: 1
   ropeLength: -5
   minPointMod: -51.68
+  AimAssistRadius: 0
   whatIsGrappleable:
     serializedVersion: 2
     m_Bits: 64
@@ -4069,6 +4070,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e15688f6-919c-417f-9a6a-f5938ad88a50
     m_ActionName: Player/Scroll[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7511757700864794981}
+        m_TargetAssemblyTypeName: thirdSoul, Assembly-CSharp
+        m_MethodName: Paused
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c2afe953-40ce-467e-925d-0b27f7c376c2
+    m_ActionName: Player/Paused[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -4090,6 +4107,8 @@ MonoBehaviour:
   GroundRadius: 0.6
   offGroundTimerEnd: 0.33
   offGroundTimer: 0
+  ResetPoint: {x: 0, y: 0, z: 0}
+  Cube: {fileID: 0}
   JumpHeight: 20
   movementSpeed: 600
   sprintSpeed: 1000
@@ -4098,6 +4117,10 @@ MonoBehaviour:
   SpeedChangeRate: 3
   mouseSensitivity: 2.5
   RuneRefresh: 15
+  Damage: 0
+  inPain: 0
+  HealthLoss: 0
+  HealthGain: 0
   MaxBounceRunes: 3
   MaxLaunchCatchRunes: 3
   LaunchStrength: {x: 2, y: 3, z: 2}
@@ -4145,6 +4168,7 @@ MonoBehaviour:
   - {fileID: 7511757699267364273}
   - {fileID: 7511757698992574903}
   - {fileID: 7511757699383720426}
+  Pause: 0
   grappleActive: 0
   grapplingGun: {fileID: 7511757698912754531}
 --- !u!143 &7511757700864794987

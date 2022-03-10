@@ -92,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Paused",
+                    "type": "Value",
+                    "id": "359d3fd8-8473-43d4-a01b-0ad72e35abd2",
+                    "expectedControlType": "Key",
+                    "processors": "",
+                    "interactions": "Press(behavior=1)"
                 }
             ],
             "bindings": [
@@ -257,6 +265,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reset Pos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d8a4c8a5-dc6c-489d-bddc-f894d6061df0",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Paused",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
