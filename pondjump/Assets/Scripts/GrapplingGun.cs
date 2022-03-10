@@ -67,6 +67,7 @@ public class GrapplingGun : MonoBehaviour
             Debug.Log(hit.transform.gameObject.layer);
 
             grappling = true;
+            player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
 
             StartingPoint = hit.point - hit.transform.position;
             StuckToo = hit.transform;
@@ -103,6 +104,7 @@ public class GrapplingGun : MonoBehaviour
     /// </summary>
     void StopGrapple()
     {
+        player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsEnd();
         grappling = false;
         lr.positionCount = 0;
         Destroy(joint);
