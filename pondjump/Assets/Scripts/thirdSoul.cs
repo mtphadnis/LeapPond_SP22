@@ -124,10 +124,13 @@ public class thirdSoul : MonoBehaviour
 
     [Space(10)]
     [Header("Grapple")]
-    [Tooltip("If active [Secondary] will use grappling hood instead of Launch/Catch Runes")]
+    [Tooltip("If active [Secondary] will use grappling instead of Launch/Catch Runes")]
     public bool grappleActive;
     [Tooltip("Grappleing hook object")]
     public GameObject grapplingGun;
+    float reduction;
+
+
     public bool Pause;
 
     private void Awake()
@@ -260,9 +263,15 @@ public class thirdSoul : MonoBehaviour
         
     }
 
-    public void GrapplePhysics(InputAction.CallbackContext context)
+    public void GrapplePhysicsStart()
     {
-        rigidBody.velocity = rigidBody.velocity / 3;
+       rigidBody.velocity = rigidBody.velocity / 3;
+       rigidBody.useGravity = false;
+    }
+
+    public void GrapplePhysicsEnd()
+    {
+        rigidBody.useGravity = true;
     }
 
     //Debugging position setter
