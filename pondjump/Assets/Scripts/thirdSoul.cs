@@ -254,7 +254,7 @@ public class thirdSoul : MonoBehaviour
         }
         else if(!Grounded && offGroundTimer >= offGroundTimerEnd)
         {
-            if (startSwitch) { rigidBody.velocity = controller.velocity; startSwitch = false; }
+            if (startSwitch && !jumping) { rigidBody.velocity = controller.velocity; startSwitch = false; }
             gravity = 0;
             offGroundTimer += Time.deltaTime;
             Grounded = false;
@@ -431,12 +431,12 @@ public class thirdSoul : MonoBehaviour
         {
             Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
-            if (type == "bounce" && grappleActive && hit.transform.gameObject.layer == RuneAble) 
+            if (type == "bounce" && grappleActive && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {
                 BounceRunes.Add(Instantiate(bounceRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)));
                 BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform); 
             }
-            else if (type == "launch" && grappleActive == false && LaunchCatchStorage[0] == null && hit.transform.gameObject.layer == RuneAble) 
+            else if (type == "launch" && grappleActive == false && LaunchCatchStorage[0] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {
                 LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
@@ -448,7 +448,7 @@ public class thirdSoul : MonoBehaviour
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
             }
-            else if (type == "catch" && grappleActive == false && LaunchCatchStorage[1] == null && hit.transform.gameObject.layer == RuneAble) 
+            else if (type == "catch" && grappleActive == false && LaunchCatchStorage[1] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {
                 LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
@@ -472,7 +472,7 @@ public class thirdSoul : MonoBehaviour
         if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
         {
             runeTimer = 0;
-            if (type == "bounce" && hit.transform.gameObject.layer == RuneAble)
+            if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             { 
                 BounceRunes[0].gameObject.transform.position = hit.point;
                 BounceRunes[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
@@ -481,13 +481,13 @@ public class thirdSoul : MonoBehaviour
                 BounceRunes.Add(placedRune);
                 placedRune.GetComponent<runeBehavior>().StickTo(hit.transform);
             }
-            else if(type == "launch" && hit.transform.gameObject.layer == RuneAble)
+            else if(type == "launch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchTemp[0].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
             }
-            else if(type == "catch" && hit.transform.gameObject.layer == RuneAble)
+            else if(type == "catch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchTemp[1].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);

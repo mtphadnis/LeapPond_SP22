@@ -35,7 +35,6 @@ public class GrapplingGun : MonoBehaviour
     {
         if (context.started && grappleActive && refreshTimer >= Refresh)
         {
-            refreshTimer = 0;
             StartGrapple();
         }
         else if (context.canceled)
@@ -68,35 +67,39 @@ public class GrapplingGun : MonoBehaviour
     void StartGrapple()
     {
         RaycastHit hit;
-        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out hit, maxDistance, whatIsGrappleable))
+        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out hit, maxDistance))
         {
-            Debug.Log(hit.transform.gameObject.layer);
+            if((whatIsGrappleable & (1 << hit.transform.gameObject.layer)) != 0)
+            {
+                Debug.Log(hit.transform.gameObject.layer);
+                refreshTimer = 0;
 
-            grappling = true;
-            player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
+                grappling = true;
+                player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
 
-            StartingPoint = hit.point - hit.transform.position;
-            StuckToo = hit.transform;
+                StartingPoint = hit.point - hit.transform.position;
+                StuckToo = hit.transform;
 
-            grapplePoint = hit.point;
-            joint = player.gameObject.AddComponent<SpringJoint>();
-            joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = grapplePoint;
+                grapplePoint = hit.point;
+                joint = player.gameObject.AddComponent<SpringJoint>();
+                joint.autoConfigureConnectedAnchor = false;
+                joint.connectedAnchor = grapplePoint;
 
-            //float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
-            float distanceFromPoint = 0;
+                //float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+                float distanceFromPoint = 0;
 
-            //The distance grapple will try to keep from grapple point. 
-            joint.maxDistance = distanceFromPoint + ropeLength;
-            joint.minDistance = distanceFromPoint + ropeLength + minPointMod;
+                //The distance grapple will try to keep from grapple point. 
+                joint.maxDistance = distanceFromPoint + ropeLength;
+                joint.minDistance = distanceFromPoint + ropeLength + minPointMod;
 
-            //Adjust these values to fit your game.
-            joint.spring = spring;
-            joint.damper = damper;
-            joint.massScale = massScale;
+                //Adjust these values to fit your game.
+                joint.spring = spring;
+                joint.damper = damper;
+                joint.massScale = massScale;
 
-            lr.positionCount = 2;
-            currentGrapplePosition = gunTip.position;
+                lr.positionCount = 2;
+                currentGrapplePosition = gunTip.position;
+            }
         }
     }
 
