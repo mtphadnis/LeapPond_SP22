@@ -268,6 +268,7 @@ MonoBehaviour:
   ropeLength: -5
   minPointMod: -51.68
   AimAssistRadius: 2
+  Refresh: 0
   whatIsGrappleable:
     serializedVersion: 2
     m_Bits: 64
@@ -2355,7 +2356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c83164d7ac1db64899be9d8fc620602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAnimator: {fileID: 0}
+  mAnimator: {fileID: 621394194}
 --- !u!95 &621394194
 Animator:
   serializedVersion: 3
@@ -7171,11 +7172,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ae76c059a91bf41a1155b4b8c29ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runeCast: {fileID: 0}
+  source: {fileID: 0}
+  catchCast: {fileID: 0}
   GroundedHieght: -0.5
   GroundRadius: 0.6
+  RuneAble:
+    serializedVersion: 2
+    m_Bits: 0
+  GroundAble:
+    serializedVersion: 2
+    m_Bits: 0
   offGroundTimerEnd: 0.33
   offGroundTimer: 0
+  FeetTouching: []
   ResetPoint: {x: 46, y: 5, z: -103}
+  PublicVector3: {x: 0, y: 0, z: 0}
   Cube: {fileID: 2000669764750121505, guid: 6a6fe8a8b48b23241bd716c7d27aa7da, type: 3}
   JumpHeight: 20
   movementSpeed: 600
@@ -7183,6 +7195,7 @@ MonoBehaviour:
   AirStrafeSpeed: 2
   AirStrafeClamp: 15
   SpeedChangeRate: 3
+  TargetGravity: 0
   mouseSensitivity: 2.5
   RuneRefresh: 15
   Damage: 0
@@ -7193,6 +7206,7 @@ MonoBehaviour:
   MaxLaunchCatchRunes: 4
   LaunchStrength: {x: 2, y: 3, z: 2}
   BounceRunes: []
+  RuneRange: 0
   LaunchCatchStorage:
   - {fileID: 0}
   - {fileID: 0}
@@ -7238,6 +7252,7 @@ MonoBehaviour:
   - {fileID: 361455576}
   grappleActive: 0
   grapplingGun: {fileID: 161037649}
+  Pause: 0
 --- !u!136 &2109785944
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7471,6 +7486,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 57c23cbe-2d92-4b20-b080-d8416891ebb3
     m_ActionName: Player/Reset Pos[/Keyboard/5]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 359d3fd8-8473-43d4-a01b-0ad72e35abd2
+    m_ActionName: Player/Paused[/Keyboard/p]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
