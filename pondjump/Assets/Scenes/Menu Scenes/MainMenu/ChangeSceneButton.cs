@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
+
 public class ChangeSceneButton : MonoBehaviour
 {
 
@@ -29,8 +30,15 @@ public class ChangeSceneButton : MonoBehaviour
     {
 
 		SceneManager.LoadScene(change);
-
+		
 	}
+
+	public void RestartScene()
+    {
+		Scene thisscene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(thisscene.name);
+		DontDestroyOnLoad(this.gameObject);
+    }
 
 
 	public int change;

@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class thirdSoul : MonoBehaviour
 {
@@ -196,6 +197,15 @@ public class thirdSoul : MonoBehaviour
         {
             Damage += HealthLoss;
             inPain = true;
+        }
+
+    }
+
+    public void LoadScene(int sceneID)
+    {
+        if (Damage <= 0)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
