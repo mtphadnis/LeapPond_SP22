@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Alex's Lab/AlexWell.unity
     guid: 95f49e655b135b241b57e9f816b8dd99
   - enabled: 0
+    path: Assets/Alex's Lab/AlexWell1.unity
+    guid: b21d62f0ab093aa4b944fead146ae246
+  - enabled: 0
     path: Assets/Scenes/Menu Scenes/Death Menu.unity
     guid: ea172982600de469d8f906b4a0daf34e
   m_configObjects:
