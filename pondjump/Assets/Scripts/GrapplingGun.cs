@@ -9,6 +9,7 @@ public class GrapplingGun : MonoBehaviour
     public float ropeLength;
     public float minPointMod;
     public float AimAssistRadius;
+    public float Refresh;
 
 
     private LineRenderer lr;
@@ -17,6 +18,7 @@ public class GrapplingGun : MonoBehaviour
     public Transform gunTip, camera, player;
     private float maxDistance = 100f;
     private SpringJoint joint;
+    float refreshTimer;
 
     bool grappleActive, grappling;
     Transform StuckToo;
@@ -26,15 +28,16 @@ public class GrapplingGun : MonoBehaviour
     {
         lr = GetComponent<LineRenderer>();
         grappleActive = false;
+        refreshTimer = Refresh;
     }
 
     public void Grapple(InputAction.CallbackContext context)
     {
-        if (context.started && grappleActive)
+        if (context.started && grappleActive && refreshTimer >= Refresh)
         {
             StartGrapple();
         }
-        else if (context.canceled && grappleActive)
+        else if (context.canceled)
         {
             StopGrapple();
         }
@@ -42,6 +45,8 @@ public class GrapplingGun : MonoBehaviour
 
     private void FixedUpdate()
     {
+        refreshTimer += refreshTimer < Refresh ? 1 : 0;
+
         if(grappling)
         {
             grapplePoint = StuckToo.position + StartingPoint;
@@ -61,34 +66,77 @@ public class GrapplingGun : MonoBehaviour
     /// </summary>
     void StartGrapple()
     {
-        RaycastHit hit;
-        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out hit, maxDistance, whatIsGrappleable))
+        RaycastHit sphere, line;
+        bool lineHit = false;
+
+        if (Physics.Raycast(camera.position, camera.forward, out line, maxDistance))
         {
-            Debug.Log(hit.transform.gameObject.layer);
 
-            grappling = true;
+            if((whatIsGrappleable & (1 << line.transform.gameObject.layer)) != 0)
+            {
+                lineHit = true;
+                refreshTimer = 0;
 
-            StartingPoint = hit.point - hit.transform.position;
-            StuckToo = hit.transform;
+                grappling = true;
+                player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
 
-            grapplePoint = hit.point;
-            joint = player.gameObject.AddComponent<SpringJoint>();
-            joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = grapplePoint;
+                StartingPoint = line.point - line.transform.position;
+                StuckToo = line.transform;
 
-            float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+                grapplePoint = line.point;
+                joint = player.gameObject.AddComponent<SpringJoint>();
+                joint.autoConfigureConnectedAnchor = false;
+                joint.connectedAnchor = grapplePoint;
 
-            //The distance grapple will try to keep from grapple point. 
-            joint.maxDistance = distanceFromPoint + ropeLength;
-            joint.minDistance = distanceFromPoint + ropeLength + minPointMod;
+                //float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+                float distanceFromPoint = 0;
 
-            //Adjust these values to fit your game.
-            joint.spring = spring;
-            joint.damper = damper;
-            joint.massScale = massScale;
+                //The distance grapple will try to keep from grapple point. 
+                joint.maxDistance = distanceFromPoint + ropeLength;
+                joint.minDistance = distanceFromPoint + ropeLength + minPointMod;
 
-            lr.positionCount = 2;
-            currentGrapplePosition = gunTip.position;
+                //Adjust these values to fit your game.
+                joint.spring = spring;
+                joint.damper = damper;
+                joint.massScale = massScale;
+
+                lr.positionCount = 2;
+                currentGrapplePosition = gunTip.position;
+            }
+        }
+        
+        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out sphere, maxDistance) && !lineHit)
+        {
+            if((whatIsGrappleable & (1 << sphere.transform.gameObject.layer)) != 0)
+            {
+                refreshTimer = 0;
+
+                grappling = true;
+                player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
+
+                StartingPoint = sphere.point - sphere.transform.position;
+                StuckToo = sphere.transform;
+
+                grapplePoint = sphere.point;
+                joint = player.gameObject.AddComponent<SpringJoint>();
+                joint.autoConfigureConnectedAnchor = false;
+                joint.connectedAnchor = grapplePoint;
+
+                //float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+                float distanceFromPoint = 0;
+
+                //The distance grapple will try to keep from grapple point. 
+                joint.maxDistance = distanceFromPoint + ropeLength;
+                joint.minDistance = distanceFromPoint + ropeLength + minPointMod;
+
+                //Adjust these values to fit your game.
+                joint.spring = spring;
+                joint.damper = damper;
+                joint.massScale = massScale;
+
+                lr.positionCount = 2;
+                currentGrapplePosition = gunTip.position;
+            }
         }
     }
 
@@ -103,6 +151,7 @@ public class GrapplingGun : MonoBehaviour
     /// </summary>
     void StopGrapple()
     {
+        player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsEnd();
         grappling = false;
         lr.positionCount = 0;
         Destroy(joint);
