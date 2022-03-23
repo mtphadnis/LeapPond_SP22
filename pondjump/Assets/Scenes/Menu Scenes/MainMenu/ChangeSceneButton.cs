@@ -23,7 +23,9 @@ public class ChangeSceneButton : MonoBehaviour
 		playselect.PlayOneShot(selectbeep);
 		change = sceneName;
 		Invoke("ChangeScene", 2f);
+		Debug.Log(change);
 
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	public void ChangeScene()

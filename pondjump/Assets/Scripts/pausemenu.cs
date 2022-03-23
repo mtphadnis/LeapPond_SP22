@@ -32,6 +32,7 @@ public class pausemenu : MonoBehaviour
 
     public void Start()
     {
+        Resume();
         action.Player.Paused.performed += _ => DeterminePause();
     }
 
@@ -54,6 +55,7 @@ public class pausemenu : MonoBehaviour
         AudioManager.SetActive(false);
         paused = true;
         PauseCanvas1.SetActive(true);
+        Cursor.lockState = CursorLockMode.None; 
         
     }
 
