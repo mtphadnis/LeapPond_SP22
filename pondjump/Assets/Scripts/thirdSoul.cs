@@ -71,6 +71,7 @@ public class thirdSoul : MonoBehaviour
     float speed;
     //whether shift and ctrl are being held
     bool sprinting, crouching;
+    Vector3 platformPositionStorage;
 
     [Space(10)]
     [Header("Camera/Mouse Controls")]
@@ -261,6 +262,20 @@ public class thirdSoul : MonoBehaviour
             SoulSwitch(false);
         }
         
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        
+        if(collision.transform.tag == "Platform")
+        {
+            
+            controller.SimpleMove(collision.transform.position - platformPositionStorage);
+            Debug.Log(collision.transform.position - platformPositionStorage);
+            Debug.Log("goo");
+            platformPositionStorage = collision.transform.position;
+            
+        }
     }
 
     public void GrapplePhysicsStart()
