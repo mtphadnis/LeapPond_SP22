@@ -76,7 +76,7 @@ public class LaunchBehavior : MonoBehaviour
 
                 Debug.Log("Difference: " + difference + " Distance: " + Vector3.Magnitude(difference) + " Multiplier: " + ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3) + " Launch: " + Vector3.Scale(difference, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
             }
-            else
+            else if(other.tag != "Platform")
             {
                 timer = 0;
                 other.GetComponent<Rigidbody>().velocity = Vector3.zero;
