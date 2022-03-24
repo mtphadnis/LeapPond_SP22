@@ -264,7 +264,7 @@ public class thirdSoul : MonoBehaviour
         
     }
 
-    private void OnCollisionStay(Collision collision)
+    /*private void OnCollisionStay(Collision collision)
     {
         
         if(collision.transform.tag == "Platform")
@@ -276,7 +276,7 @@ public class thirdSoul : MonoBehaviour
             platformPositionStorage = collision.transform.position;
             
         }
-    }
+    }*/
 
     public void GrapplePhysicsStart()
     {
