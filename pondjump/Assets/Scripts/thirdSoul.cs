@@ -193,7 +193,7 @@ public class thirdSoul : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         if(other.transform.tag == "Deadly" && Damage < 0.33)
         {
             Damage = 0.33f;
@@ -454,7 +454,7 @@ public class thirdSoul : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
         {
-            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && grappleActive && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {

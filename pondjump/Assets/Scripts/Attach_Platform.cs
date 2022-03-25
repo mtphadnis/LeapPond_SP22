@@ -8,10 +8,8 @@ public class Attach_Platform : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ded");
         if(other.gameObject == Player)
         {
-            Debug.Log("goo");
             Player.transform.parent = transform;
 
             //sets players parent to the moving platform
