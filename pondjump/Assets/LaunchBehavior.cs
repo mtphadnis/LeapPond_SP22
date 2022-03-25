@@ -24,6 +24,7 @@ public class LaunchBehavior : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         _LaunchStrength = Player.GetComponent<thirdSoul>().LaunchStrength;
+        
     }
 
     void FixedUpdate()
@@ -64,7 +65,9 @@ public class LaunchBehavior : MonoBehaviour
             {
                 Vector3 VelocityMultiplier = (other.GetComponent<Rigidbody>().velocity.magnitude > SprintCheck || other.GetComponent<CharacterController>().velocity.magnitude > SprintCheck) ? SprintMultiplier : WalkMultiplier;
                 Vector3 TargetHeight = (other.GetComponent<Rigidbody>().velocity.magnitude > SprintCheck || other.GetComponent<CharacterController>().velocity.magnitude > SprintCheck) ? Vector3.zero : Vector3.up * (CatchHieghtNumeratorConstant / (Catch.transform.position.y - transform.position.y + debugFloat01) + debugFloat02) + new Vector3(0,debugFloat03,0);
-                Debug.Log("Rigid Velocity: " + other.GetComponent<Rigidbody>().velocity.magnitude + " Controller Velocity: " + other.GetComponent<CharacterController>().velocity.magnitude);
+                //Debug.Log("Rigid Velocity: " + other.GetComponent<Rigidbody>().velocity.magnitude + " Controller Velocity: " + other.GetComponent<CharacterController>().velocity.magnitude);
+
+                Debug.Log("Player: " + Player.name);
 
                 timer = 0;
                 Player.GetComponent<thirdSoul>().LaunchStart();
@@ -74,7 +77,9 @@ public class LaunchBehavior : MonoBehaviour
 
                 other.GetComponent<Rigidbody>().AddForce(Vector3.Scale(difference + TargetHeight, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
 
-                Debug.Log("Difference: " + difference + " Distance: " + Vector3.Magnitude(difference) + " Multiplier: " + ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3) + " Launch: " + Vector3.Scale(difference, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
+                
+
+                //Debug.Log("Difference: " + difference + " Distance: " + Vector3.Magnitude(difference) + " Multiplier: " + ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3) + " Launch: " + Vector3.Scale(difference, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
             }
             else if(other.tag != "Platform")
             {
