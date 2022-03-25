@@ -9,7 +9,11 @@ public class runeBehavior : MonoBehaviour
 
     void Update()
     {
-        transform.position = StuckToo.position + StartingPoint;
+        if(StuckToo != null && StartingPoint != null)
+        {
+            transform.position = StuckToo.position + StartingPoint;
+        }
+        
     }
 
     public void StickTo(Transform surface)

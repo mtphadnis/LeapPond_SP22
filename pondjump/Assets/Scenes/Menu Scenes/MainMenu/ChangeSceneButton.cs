@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 
+
 public class ChangeSceneButton : MonoBehaviour
 {
 
@@ -22,15 +23,24 @@ public class ChangeSceneButton : MonoBehaviour
 		playselect.PlayOneShot(selectbeep);
 		change = sceneName;
 		Invoke("ChangeScene", 2f);
+		Debug.Log(change);
 
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	public void ChangeScene()
     {
 
 		SceneManager.LoadScene(change);
-
+		
 	}
+
+	public void RestartScene()
+    {
+		Scene thisscene = SceneManager.GetActiveScene();
+		SceneManager.LoadScene(thisscene.name);
+		DontDestroyOnLoad(this.gameObject);
+    }
 
 
 	public int change;

@@ -8,6 +8,7 @@ TagManager:
   - BounceRune
   - LaunchRune
   - CatchRune
+  - Platform
   layers:
   - Default
   - TransparentFX

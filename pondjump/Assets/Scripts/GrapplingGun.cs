@@ -66,21 +66,58 @@ public class GrapplingGun : MonoBehaviour
     /// </summary>
     void StartGrapple()
     {
-        RaycastHit hit;
-        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out hit, maxDistance))
+        RaycastHit sphere, line;
+        bool lineHit = false;
+
+        if (Physics.Raycast(camera.position, camera.forward, out line, maxDistance))
         {
-            if((whatIsGrappleable & (1 << hit.transform.gameObject.layer)) != 0)
+
+            if((whatIsGrappleable & (1 << line.transform.gameObject.layer)) != 0)
             {
-                Debug.Log(hit.transform.gameObject.layer);
+                lineHit = true;
                 refreshTimer = 0;
 
                 grappling = true;
                 player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
 
-                StartingPoint = hit.point - hit.transform.position;
-                StuckToo = hit.transform;
+                StartingPoint = line.point - line.transform.position;
+                StuckToo = line.transform;
 
-                grapplePoint = hit.point;
+                grapplePoint = line.point;
+                joint = player.gameObject.AddComponent<SpringJoint>();
+                joint.autoConfigureConnectedAnchor = false;
+                joint.connectedAnchor = grapplePoint;
+
+                //float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+                float distanceFromPoint = 0;
+
+                //The distance grapple will try to keep from grapple point. 
+                joint.maxDistance = distanceFromPoint + ropeLength;
+                joint.minDistance = distanceFromPoint + ropeLength + minPointMod;
+
+                //Adjust these values to fit your game.
+                joint.spring = spring;
+                joint.damper = damper;
+                joint.massScale = massScale;
+
+                lr.positionCount = 2;
+                currentGrapplePosition = gunTip.position;
+            }
+        }
+        
+        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out sphere, maxDistance) && !lineHit)
+        {
+            if((whatIsGrappleable & (1 << sphere.transform.gameObject.layer)) != 0)
+            {
+                refreshTimer = 0;
+
+                grappling = true;
+                player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsStart();
+
+                StartingPoint = sphere.point - sphere.transform.position;
+                StuckToo = sphere.transform;
+
+                grapplePoint = sphere.point;
                 joint = player.gameObject.AddComponent<SpringJoint>();
                 joint.autoConfigureConnectedAnchor = false;
                 joint.connectedAnchor = grapplePoint;
