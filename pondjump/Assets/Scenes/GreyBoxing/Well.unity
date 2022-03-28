@@ -34519,7 +34519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362841596144643582, guid: 75f84cfc381676944a31d957e1eacba8, type: 3}
       propertyPath: spring
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1362841597951743990, guid: 75f84cfc381676944a31d957e1eacba8, type: 3}
       propertyPath: m_RootOrder
