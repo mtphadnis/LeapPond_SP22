@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using StarterAssets;
 
 public class pausemenu : MonoBehaviour
 {
