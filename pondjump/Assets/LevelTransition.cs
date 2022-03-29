@@ -5,19 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelTransition : MonoBehaviour
 {
-    public string NextLevelName;
-    Scene NextLevel;
+    public int NextLevelIndex;
+    Scene NextLevel, CurrentScene;
 
     private void Start()
     {
-        NextLevel = SceneManager.GetSceneByName(NextLevelName);
+        NextLevel = SceneManager.GetSceneByBuildIndex(NextLevelIndex);
+
+        CurrentScene = SceneManager.GetActiveScene();
+        Debug.Log("CurrentScene: " + CurrentScene.name + ", " + CurrentScene.buildIndex);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            SceneManager.SetActiveScene(NextLevel);
+            SceneManager.LoadScene(NextLevelIndex);
         }
     }
 }
