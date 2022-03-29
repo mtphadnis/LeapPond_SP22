@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5761565106904556436}
   - component: {fileID: 553375267014621580}
+  - component: {fileID: 5705051360115507427}
   m_Layer: 8
   m_Name: Rune_Bounce
   m_TagString: BounceRune
@@ -255,6 +256,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22db27979d3250448856add97cc2f087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &5705051360115507427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7354544503319895973}
+  m_Material: {fileID: 13400000, guid: afb12f40846adf84b80eecbf74d8a1d1, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2037134, y: 0.24999999, z: 2.109132}
+  m_Center: {x: 0.21278383, y: 0.36, z: -0.0763914}
 --- !u!1 &7533488363869969693
 GameObject:
   m_ObjectHideFlags: 0
