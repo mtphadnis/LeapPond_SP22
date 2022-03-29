@@ -8,7 +8,9 @@ public class LoadWell : MonoBehaviour
 {
 	public void LoadScene(string sceneName)
 	{
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene(1);
+		DontDestroyOnLoad(this.gameObject);
+		
 
 	}
 

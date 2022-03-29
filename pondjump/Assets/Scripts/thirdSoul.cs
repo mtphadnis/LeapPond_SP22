@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class thirdSoul : MonoBehaviour
 {
@@ -200,6 +201,15 @@ public class thirdSoul : MonoBehaviour
         {
             Damage += HealthLoss;
             inPain = true;
+        }
+
+    }
+
+    public void LoadScene(int sceneID)
+    {
+        if (Damage <= 0)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
@@ -474,7 +484,9 @@ public class thirdSoul : MonoBehaviour
                     Array.Clear(LaunchCatchStorage, 0, 2);
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
+
                 source.PlayOneShot(catchCast);
+                
             }
 
             
@@ -516,18 +528,18 @@ public class thirdSoul : MonoBehaviour
     //if primary is clicked then a bounceRune will be spawned
     public void Primary(InputAction.CallbackContext context)
     {
-        
-        if (grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) {spawn_Rune("bounce"); }
+
+        if (grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
         else if (grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
         else if (!grappleActive && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); }
-        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] != null) 
+        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] != null)
         {
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
-            move_Rune("launch"); 
+            move_Rune("launch");
         }
-
         source.PlayOneShot(runeCast);
+        
 
     }
 
@@ -546,6 +558,7 @@ public class thirdSoul : MonoBehaviour
     {
         if (pausemenu.paused)
             return;
+
         
     }
 

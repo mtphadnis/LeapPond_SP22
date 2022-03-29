@@ -6,15 +6,11 @@ using UnityEngine.SceneManagement;
 public class LevelTransition : MonoBehaviour
 {
     public string NextLevelName;
-    Scene NextLevel, CurrentScene;
-
+    Scene NextLevel;
 
     private void Start()
     {
         NextLevel = SceneManager.GetSceneByName(NextLevelName);
-
-        CurrentScene = SceneManager.GetActiveScene();
-        Debug(CurrentScene)
     }
 
     private void OnTriggerEnter(Collider other)
