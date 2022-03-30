@@ -88,19 +88,6 @@ public class thirdSoul : MonoBehaviour
     int launchScroll;
 
     [Space(10)]
-    [Header("Health")]
-    [Tooltip("Current Player Health")]
-    [Range(0,1)]
-    public float Damage;
-    //whether the player is being hurt or not
-    public bool inPain;
-    Image HealthUI;
-    [Tooltip("How much health percentage is lost per second while being damaged")]
-    public float HealthLoss;
-    [Tooltip("How much health percentage is gained per second while  not being damaged")]
-    public float HealthGain;
-
-    [Space(10)]
     [Header("Runes")]
     [Tooltip("How many Bounce Runes can be placed before they start reusing placed runes")]
     public float MaxBounceRunes;
@@ -156,8 +143,6 @@ public class thirdSoul : MonoBehaviour
         SoulSwitch(true);
         groundRadiusStored = GroundRadius;
 
-        HealthUI = GameObject.Find("HealthUI").GetComponent<Image>();
-
         for(int i = 0; i < MaxLaunchCatchRunes; i++)
         {
             LCRuneSets.Add(null);
@@ -173,7 +158,6 @@ public class thirdSoul : MonoBehaviour
         WhatsUnder();
         Move();
         runeTimer++;
-        Healing();
 
         //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         //Debug.Log("Rigid Velocity: " + rigidBody.velocity.magnitude + " Controller Velocity: " + controller.velocity.magnitude);
@@ -190,46 +174,6 @@ public class thirdSoul : MonoBehaviour
         controller.enabled = Grounded;
         rigidBody.isKinematic = Grounded;
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        //Debug.Log(other.name);
-        if(other.transform.tag == "Deadly" && Damage < 0.33)
-        {
-            Damage = 0.33f;
-        }else if(other.transform.tag == "Deadly" && Damage < 1)
-        {
-            Damage += HealthLoss;
-            inPain = true;
-        }
-
-    }
-
-    public void LoadScene(int sceneID)
-    {
-        if (Damage <= 0)
-        {
-            SceneManager.LoadScene(3);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.transform.tag == "Deadly" && Damage > 0)
-        {
-            inPain = false;
-        }
-    }
-
-    void Healing()
-    {
-        Damage += !inPain && Damage > 0 ? HealthGain : 0;
-        var tempColor = HealthUI.color;
-        tempColor.a = Damage;
-        HealthUI.color = tempColor;
-        HealthUI.fillAmount = Damage;
-    }
-
 
     //Will switch between physics controllers
     //Character Controller = True
@@ -273,21 +217,6 @@ public class thirdSoul : MonoBehaviour
         }
         
     }
-
-    /*private void OnCollisionStay(Collision collision)
-    {
-        
-        if(collision.transform.tag == "Platform")
-        {
-            
-            controller.SimpleMove(collision.transform.position - platformPositionStorage);
-            Debug.Log(collision.transform.position - platformPositionStorage);
-            Debug.Log("goo");
-            platformPositionStorage = collision.transform.position;
-            
-        }
-    }*/
-
     public void GrapplePhysicsStart()
     {
        rigidBody.velocity = rigidBody.velocity / 3;
