@@ -10,7 +10,6 @@ public class Attach_Platform : MonoBehaviour
     {
         if(other.gameObject == Player)
         {
-
             Player.transform.parent = transform;
 
             //sets players parent to the moving platform

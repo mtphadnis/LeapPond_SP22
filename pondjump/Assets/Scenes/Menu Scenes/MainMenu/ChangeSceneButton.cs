@@ -8,8 +8,15 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneButton : MonoBehaviour
 {
+    private void Start()
+    {
+		for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+		{
+			Debug.Log("Scene " + i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
+		}
+	}
 
-	public void PlaySound()
+    public void PlaySound()
 	{
 		playselect.PlayOneShot(selectbeep);
 	}
@@ -27,6 +34,7 @@ public class ChangeSceneButton : MonoBehaviour
 
 		DontDestroyOnLoad(this.gameObject);
 	}
+
 
 	public void ChangeScene()
     {

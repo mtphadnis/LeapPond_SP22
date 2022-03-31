@@ -73,6 +73,7 @@ public class thirdSoul : MonoBehaviour
     float speed;
     //whether shift and ctrl are being held
     bool sprinting, crouching;
+    Vector3 platformPositionStorage;
 
     [Space(10)]
     [Header("Camera/Mouse Controls")]
@@ -86,19 +87,6 @@ public class thirdSoul : MonoBehaviour
     float runeTimer;
     float scrollPosition;
     int launchScroll;
-
-    [Space(10)]
-    [Header("Health")]
-    [Tooltip("Current Player Health")]
-    [Range(0,1)]
-    public float Damage;
-    //whether the player is being hurt or not
-    public bool inPain;
-    Image HealthUI;
-    [Tooltip("How much health percentage is lost per second while being damaged")]
-    public float HealthLoss;
-    [Tooltip("How much health percentage is gained per second while  not being damaged")]
-    public float HealthGain;
 
     [Space(10)]
     [Header("Runes")]
@@ -156,8 +144,6 @@ public class thirdSoul : MonoBehaviour
         SoulSwitch(true);
         groundRadiusStored = GroundRadius;
 
-        HealthUI = GameObject.Find("HealthUI").GetComponent<Image>();
-
         for(int i = 0; i < MaxLaunchCatchRunes; i++)
         {
             LCRuneSets.Add(null);
@@ -173,7 +159,6 @@ public class thirdSoul : MonoBehaviour
         WhatsUnder();
         Move();
         runeTimer++;
-        Healing();
 
         //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         //Debug.Log("Rigid Velocity: " + rigidBody.velocity.magnitude + " Controller Velocity: " + controller.velocity.magnitude);
@@ -190,46 +175,6 @@ public class thirdSoul : MonoBehaviour
         controller.enabled = Grounded;
         rigidBody.isKinematic = Grounded;
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other.name);
-        if(other.transform.tag == "Deadly" && Damage < 0.33)
-        {
-            Damage = 0.33f;
-        }else if(other.transform.tag == "Deadly" && Damage < 1)
-        {
-            Damage += HealthLoss;
-            inPain = true;
-        }
-
-    }
-
-    public void LoadScene(int sceneID)
-    {
-        if (Damage <= 0)
-        {
-            SceneManager.LoadScene(3);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.transform.tag == "Deadly" && Damage > 0)
-        {
-            inPain = false;
-        }
-    }
-
-    void Healing()
-    {
-        Damage += !inPain && Damage > 0 ? HealthGain : 0;
-        var tempColor = HealthUI.color;
-        tempColor.a = Damage;
-        HealthUI.color = tempColor;
-        HealthUI.fillAmount = Damage;
-    }
-
 
     //Will switch between physics controllers
     //Character Controller = True
@@ -273,7 +218,6 @@ public class thirdSoul : MonoBehaviour
         }
         
     }
-
     public void GrapplePhysicsStart()
     {
        rigidBody.velocity = rigidBody.velocity / 3;
@@ -440,7 +384,7 @@ public class thirdSoul : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
         {
-            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && grappleActive && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {
