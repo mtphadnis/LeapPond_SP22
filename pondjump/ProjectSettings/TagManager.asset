@@ -9,11 +9,12 @@ TagManager:
   - LaunchRune
   - CatchRune
   - Platform
+  - CinemachineTarget
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Checkpoint
   - Water
   - UI
   - Ground
