@@ -21,13 +21,13 @@ public class PlayerAnimationManager : MonoBehaviour
             //whatever runs when ani starts
             //Debug.Log("hey");
 
-            Debug.Log("Hey");
+            //Debug.Log("Hey");
 
             //mAnimator.SetBool("Throw", true);
 
             mAnimator.SetTrigger("Throw");
 
-            Debug.Log(mAnimator.gameObject.name); 
+            //Debug.Log(mAnimator.gameObject.name); 
         }
         else if(context.canceled)
         {

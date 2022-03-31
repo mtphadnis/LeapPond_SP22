@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using StarterAssets;
 
 public class pausemenu : MonoBehaviour
 {
 
     public static bool paused = false;
     public GameObject PauseCanvas1;
+    public GameObject AudioManager;
     FirstPersonControls action;
 
     private void Awake()
@@ -31,6 +31,7 @@ public class pausemenu : MonoBehaviour
 
     public void Start()
     {
+        Resume();
         action.Player.Paused.performed += _ => DeterminePause();
     }
 
@@ -49,8 +50,11 @@ public class pausemenu : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
+        AudioListener.pause = true;
+        AudioManager.SetActive(false);
         paused = true;
         PauseCanvas1.SetActive(true);
+        Cursor.lockState = CursorLockMode.None; 
         
     }
 
@@ -60,6 +64,8 @@ public class pausemenu : MonoBehaviour
     {
 
         Time.timeScale = 1;
+        AudioListener.pause = false;
+        AudioManager.SetActive(true);
         paused = false;
         PauseCanvas1.SetActive(false);
     }

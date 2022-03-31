@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class thirdSoul : MonoBehaviour
 {
@@ -71,6 +72,7 @@ public class thirdSoul : MonoBehaviour
     float speed;
     //whether shift and ctrl are being held
     bool sprinting, crouching;
+    Vector3 platformPositionStorage;
 
     [Space(10)]
     [Header("Camera/Mouse Controls")]
@@ -191,7 +193,7 @@ public class thirdSoul : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
         if(other.transform.tag == "Deadly" && Damage < 0.33)
         {
             Damage = 0.33f;
@@ -199,6 +201,15 @@ public class thirdSoul : MonoBehaviour
         {
             Damage += HealthLoss;
             inPain = true;
+        }
+
+    }
+
+    public void LoadScene(int sceneID)
+    {
+        if (Damage <= 0)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 
@@ -262,6 +273,20 @@ public class thirdSoul : MonoBehaviour
         }
         
     }
+
+    /*private void OnCollisionStay(Collision collision)
+    {
+        
+        if(collision.transform.tag == "Platform")
+        {
+            
+            controller.SimpleMove(collision.transform.position - platformPositionStorage);
+            Debug.Log(collision.transform.position - platformPositionStorage);
+            Debug.Log("goo");
+            platformPositionStorage = collision.transform.position;
+            
+        }
+    }*/
 
     public void GrapplePhysicsStart()
     {
@@ -429,7 +454,7 @@ public class thirdSoul : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
         {
-            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && grappleActive && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {
@@ -459,7 +484,9 @@ public class thirdSoul : MonoBehaviour
                     Array.Clear(LaunchCatchStorage, 0, 2);
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
+
                 source.PlayOneShot(catchCast);
+                
             }
 
             
@@ -501,18 +528,18 @@ public class thirdSoul : MonoBehaviour
     //if primary is clicked then a bounceRune will be spawned
     public void Primary(InputAction.CallbackContext context)
     {
-        
-        if (grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) {spawn_Rune("bounce"); }
+
+        if (grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
         else if (grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
         else if (!grappleActive && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); }
-        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] != null) 
+        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] != null)
         {
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
-            move_Rune("launch"); 
+            move_Rune("launch");
         }
-
         source.PlayOneShot(runeCast);
+        
 
     }
 
@@ -531,6 +558,7 @@ public class thirdSoul : MonoBehaviour
     {
         if (pausemenu.paused)
             return;
+
         
     }
 
