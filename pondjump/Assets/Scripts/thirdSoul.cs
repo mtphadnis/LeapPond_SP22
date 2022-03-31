@@ -16,6 +16,7 @@ public class thirdSoul : MonoBehaviour
     public AudioClip runeCast;
     public AudioSource source;
     public AudioClip catchCast;
+    public AudioClip incorrectcast;
 
 
     [Header("Ground Detections")]
@@ -26,7 +27,7 @@ public class thirdSoul : MonoBehaviour
     //stores the set radius
     float groundRadiusStored;
     [Tooltip("Layers the player can place runes on and layers that will enable the player controller")]
-    public LayerMask RuneAble, GroundAble;
+    public LayerMask RuneAble, GroundAble, NonRuneAble;
     [Tooltip("how long in seconds the player needs to be off the ground until the player is !Grounded")]
     public float offGroundTimerEnd;
     //the fluid timer that increases until offGroundTimerEnd
@@ -473,8 +474,12 @@ public class thirdSoul : MonoBehaviour
                 source.PlayOneShot(catchCast);
                 
             }
+            else if ((NonRuneAble & (1 << hit.transform.gameObject.layer)) != 0)
+            {
+                source.PlayOneShot(incorrectcast);
+            }
 
-            
+
         }
     }
     
