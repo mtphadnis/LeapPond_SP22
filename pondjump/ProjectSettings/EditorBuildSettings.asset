@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GreyBoxing/Well.unity
     guid: 189caff6227774121a20a000e0b325c9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Alex's Lab/Alex's Lab 02.unity
     guid: ec9ae2d6c86c1994480c9da294b99069
   m_configObjects:
