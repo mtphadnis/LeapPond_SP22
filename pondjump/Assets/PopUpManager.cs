@@ -6,29 +6,33 @@ using TMPro;
 
 public class PopUpManager : MonoBehaviour
 {
-    public GameObject PopUpCanvas;
+    public GameObject PopUpTextCanvas;
+    public GameObject PopUpImageCanvas;
     TextMeshProUGUI popUpText;
     TextMeshProUGUI popUpImageText;
-    Image popUpImage;
+    Sprite popUpImage;
     string _recievedText;
-    GameObject previousPopUp;
+    Sprite _recievedImage;
+    bool textOnly;
 
     // Start is called before the first frame update
     void Start()
     {
-        popUpText = GameObject.Find("RecievedText (TMP)").GetComponent<TextMeshProUGUI>();
+        popUpText = GameObject.Find("RecievedText(T) (TMP)").GetComponent<TextMeshProUGUI>();
+        popUpImageText = GameObject.Find("RecievedText(I) (TMP)").GetComponent<TextMeshProUGUI>();
+        popUpImage = GameObject.Find("Image(I)").GetComponent<Sprite>(); ;
 
-        PopUpCanvas.SetActive(false);
+        PopUpTextCanvas.SetActive(false);
+        PopUpImageCanvas.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "PopUpText")
         {
-            PopUpCanvas.SetActive(true);
+            textOnly = true;
+            PopUpTextCanvas.SetActive(true);
             _recievedText = other.GetComponent<PopUp>().DeliveryText;
-            Debug.Log(_recievedText);
-            Debug.Log(popUpText);
 
             popUpText.SetText(_recievedText);
 
@@ -39,13 +43,25 @@ public class PopUpManager : MonoBehaviour
         }
         else if(other.transform.tag == "PopUpImage")
         {
+            textOnly = false;
+            PopUpImageCanvas.SetActive(true);
+            _recievedText = other.GetComponent<PopUp>().DeliveryText;
+            _recievedImage = other.GetComponent<PopUp>().DeliveryImage;
 
+            popUpImageText.SetText(_recievedText);
+            popUpImage = _recievedImage;
+
+            Time.timeScale = 0;
+            AudioListener.pause = true;
+            Cursor.lockState = CursorLockMode.None;
+            other.gameObject.SetActive(false);
         }
     }
 
     public void Continue()
     {
-        PopUpCanvas.SetActive(false);
+        if (textOnly)
+        { PopUpTextCanvas.SetActive(false); } else { PopUpImageCanvas.SetActive(false); }
         Time.timeScale = 1;
         AudioListener.pause = false;
         Cursor.lockState = CursorLockMode.Locked;

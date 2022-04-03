@@ -6,5 +6,5 @@ using UnityEngine.UI;
 public class PopUp : MonoBehaviour
 {
     public string DeliveryText;
-    public Image DeliveryImage;
+    public Sprite DeliveryImage;
 }
