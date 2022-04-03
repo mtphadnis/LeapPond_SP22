@@ -16560,9 +16560,11 @@ GameObject:
   m_Component:
   - component: {fileID: 586081577}
   - component: {fileID: 586081581}
+  - component: {fileID: 586081583}
   - component: {fileID: 586081580}
   - component: {fileID: 586081579}
   - component: {fileID: 586081578}
+  - component: {fileID: 586081582}
   m_Layer: 13
   m_Name: Pipe
   m_TagString: Untagged
@@ -17761,6 +17763,32 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!65 &586081582
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586081576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 30.000004, y: 6.5814567, z: 25.98076}
+  m_Center: {x: -15.000153, y: 3.2908208, z: -0.000014989215}
+--- !u!114 &586081583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586081576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a8e2f5342c9e14ebf8ce4718e3fd90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextLevelIndex: 4
 --- !u!1 &647182904
 GameObject:
   m_ObjectHideFlags: 0
@@ -18080,7 +18108,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh52390
+  m_Name: pb_Mesh248584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -18870,7 +18898,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh52264
+  m_Name: pb_Mesh251994
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

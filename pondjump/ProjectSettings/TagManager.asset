@@ -9,7 +9,8 @@ TagManager:
   - LaunchRune
   - CatchRune
   - Platform
-  - CinemachineTarget
+  - PopUpText
+  - PopUpImage
   layers:
   - Default
   - TransparentFX
