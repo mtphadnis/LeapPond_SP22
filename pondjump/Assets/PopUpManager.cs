@@ -10,7 +10,6 @@ public class PopUpManager : MonoBehaviour
     public GameObject PopUpImageCanvas;
     TextMeshProUGUI popUpText;
     TextMeshProUGUI popUpImageText;
-    Sprite popUpImage;
     string _recievedText;
     Sprite _recievedImage;
     bool textOnly;
@@ -20,7 +19,6 @@ public class PopUpManager : MonoBehaviour
     {
         popUpText = GameObject.Find("RecievedText(T) (TMP)").GetComponent<TextMeshProUGUI>();
         popUpImageText = GameObject.Find("RecievedText(I) (TMP)").GetComponent<TextMeshProUGUI>();
-        popUpImage = GameObject.Find("Image(I)").GetComponent<Sprite>(); ;
 
         PopUpTextCanvas.SetActive(false);
         PopUpImageCanvas.SetActive(false);
@@ -49,7 +47,8 @@ public class PopUpManager : MonoBehaviour
             _recievedImage = other.GetComponent<PopUp>().DeliveryImage;
 
             popUpImageText.SetText(_recievedText);
-            popUpImage = _recievedImage;
+            GameObject.Find("Image(I)").GetComponent<Image>().sprite = _recievedImage;
+
 
             Time.timeScale = 0;
             AudioListener.pause = true;
