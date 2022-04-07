@@ -2675,6 +2675,7 @@ MonoBehaviour:
   gunTip: {fileID: 558369842}
   camera: {fileID: 1220024903}
   player: {fileID: 2109785947}
+  maxDistance: 100
 --- !u!120 &161037652
 LineRenderer:
   m_ObjectHideFlags: 0

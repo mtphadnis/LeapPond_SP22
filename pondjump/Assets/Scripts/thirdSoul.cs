@@ -419,9 +419,11 @@ public class thirdSoul : MonoBehaviour
                 source.PlayOneShot(catchCast);
                 
             }
+            else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
 
-            
+
         }
+        else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
     
     /*
@@ -505,7 +507,9 @@ public class thirdSoul : MonoBehaviour
 
                 source.PlayOneShot(catchCast);
             }
+            else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
         }
+        else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
 
     //if primary is clicked then a bounceRune will be spawned
@@ -531,6 +535,10 @@ public class thirdSoul : MonoBehaviour
         }
         source.PlayOneShot(runeCast);
         
+        if(context.canceled)
+        {
+            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+        }
 
     }
 
@@ -539,6 +547,11 @@ public class thirdSoul : MonoBehaviour
         
         if (!grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
         else if (!grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
+
+        if (context.canceled)
+        {
+            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+        }
     }
     
     /*
