@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class GrapplingGun : MonoBehaviour
@@ -39,6 +40,7 @@ public class GrapplingGun : MonoBehaviour
         }
         else if (context.canceled)
         {
+            GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
             StopGrapple();
         }
     }
@@ -51,6 +53,11 @@ public class GrapplingGun : MonoBehaviour
         {
             grapplePoint = StuckToo.position + StartingPoint;
             joint.connectedAnchor = StuckToo.position + StartingPoint;
+
+            if (Vector3.Distance(camera.position, StuckToo.position) < 5)
+            {
+                player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsEnd();
+            }
         }
         
     }
@@ -109,6 +116,7 @@ public class GrapplingGun : MonoBehaviour
         {
             if((whatIsGrappleable & (1 << sphere.transform.gameObject.layer)) != 0)
             {
+                lineHit = true;
                 refreshTimer = 0;
 
                 grappling = true;
@@ -137,6 +145,11 @@ public class GrapplingGun : MonoBehaviour
                 lr.positionCount = 2;
                 currentGrapplePosition = gunTip.position;
             }
+        }
+
+        if(!lineHit)
+        {
+            GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(255, 0, 0, 255);
         }
     }
 
