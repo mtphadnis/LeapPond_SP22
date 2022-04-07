@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &12169683
@@ -258,6 +262,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -993,6 +1001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &55059554 stripped
@@ -1066,6 +1078,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -1202,6 +1218,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -2920,6 +2940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &105602612
@@ -3112,6 +3136,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -3542,6 +3570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (48)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &144277971 stripped
@@ -3678,6 +3710,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (79)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &147385599 stripped
@@ -3700,7 +3736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &149845572
 Transform:
   m_ObjectHideFlags: 0
@@ -3756,12 +3792,12 @@ Transform:
   - {fileID: 569163829}
   - {fileID: 1082038021}
   - {fileID: 652359249}
-  - {fileID: 1727790252}
   - {fileID: 1042176743}
   - {fileID: 483821820}
   - {fileID: 608360400}
   - {fileID: 144277971}
   - {fileID: 1097038041}
+  - {fileID: 1727790252}
   - {fileID: 508444016}
   - {fileID: 1716606646}
   - {fileID: 674195429}
@@ -3933,6 +3969,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &182574445
@@ -4001,6 +4041,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (38)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -4075,6 +4119,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (60)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -4689,6 +4737,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &209494659 stripped
@@ -4762,6 +4814,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -6148,7 +6204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &253543146
 Transform:
   m_ObjectHideFlags: 0
@@ -6234,6 +6290,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (65)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -6972,6 +7032,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &298868402
@@ -7041,6 +7105,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &298868403 stripped
@@ -7063,7 +7131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &301183996
 Transform:
   m_ObjectHideFlags: 0
@@ -8181,6 +8249,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &317932594 stripped
@@ -8254,6 +8326,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -8390,6 +8466,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -8589,6 +8669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &344243754
@@ -8657,6 +8741,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -9115,6 +9203,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (66)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &387322306 stripped
@@ -9251,6 +9343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &396433591 stripped
@@ -9324,6 +9420,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (75)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -9399,6 +9499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &400735147 stripped
@@ -9472,6 +9576,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -9547,6 +9655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &422592931 stripped
@@ -9621,6 +9733,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &430038523 stripped
@@ -9694,6 +9810,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -9830,6 +9950,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -10487,6 +10611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &458343737 stripped
@@ -10628,6 +10756,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &483821820 stripped
@@ -10701,6 +10833,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -10802,6 +10938,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (50)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -11227,6 +11367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &536682012 stripped
@@ -11401,6 +11545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &560909464
@@ -11469,6 +11617,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -11707,6 +11859,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (41)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -23608,6 +23764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &581345221 stripped
@@ -23682,6 +23842,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &593309061
@@ -23750,6 +23914,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (88)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -24019,7 +24187,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dbe80190c9adea34c8c8845ca4a17934, type: 2}
+  - {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24933,6 +25101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &608360400 stripped
@@ -25295,6 +25467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (40)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &627494299 stripped
@@ -25368,6 +25544,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -26067,6 +26247,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -27353,6 +27537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &661622985 stripped
@@ -27652,6 +27840,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (52)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -28014,6 +28206,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -28854,6 +29050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &738762253 stripped
@@ -29216,6 +29416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &755206323 stripped
@@ -29289,6 +29493,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (39)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -29589,6 +29797,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -30033,6 +30245,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -30741,6 +30957,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &836487059 stripped
@@ -30814,6 +31034,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -31301,6 +31525,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &861384174 stripped
@@ -31436,6 +31664,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -32020,6 +32252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &888486913 stripped
@@ -32325,6 +32561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &919442823 stripped
@@ -32625,6 +32865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!43 &926073794
@@ -32920,6 +33164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &932104663 stripped
@@ -32993,6 +33241,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -33197,6 +33449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &950820499 stripped
@@ -33270,6 +33526,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -33598,6 +33858,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &994659963
@@ -33666,6 +33930,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -35155,6 +35423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1028569977
@@ -35223,6 +35495,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -35297,6 +35573,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -35552,6 +35832,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (45)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -36002,6 +36286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1050487460 stripped
@@ -36205,6 +36493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1078240333
@@ -36335,6 +36627,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -36534,6 +36830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (42)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1082038021 stripped
@@ -36669,6 +36969,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -36912,6 +37216,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -37275,6 +37583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1136506867
@@ -37343,6 +37655,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -37422,6 +37738,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -37777,6 +38097,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -38283,6 +38607,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -38810,6 +39138,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1200246477
@@ -38878,6 +39210,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -40009,6 +40345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (58)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1210612924 stripped
@@ -40853,6 +41193,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (59)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1245703443 stripped
@@ -40926,6 +41270,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -42341,6 +42689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1267515884 stripped
@@ -42476,6 +42828,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -42864,6 +43220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1286682522 stripped
@@ -42999,6 +43359,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -43387,6 +43751,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1301025760 stripped
@@ -43523,6 +43891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1315107120 stripped
@@ -43596,6 +43968,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -43681,6 +44057,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1 &1336142490
@@ -43698,7 +44078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1336142491
 Transform:
   m_ObjectHideFlags: 0
@@ -43789,6 +44169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1336919833 stripped
@@ -43862,6 +44246,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (56)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -44100,6 +44488,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -44366,6 +44758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1373561373
@@ -44496,6 +44892,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -45064,7 +45464,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a54b7ad866d3a9b47bbf3b53baa0acc4, type: 2}
+  - {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45383,6 +45783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (85)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1416113492 stripped
@@ -45456,6 +45860,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -45982,6 +46390,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -46984,7 +47396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1460811142
 Transform:
   m_ObjectHideFlags: 0
@@ -47071,6 +47483,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1478891864
@@ -47139,6 +47555,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -47219,6 +47639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1484577822 stripped
@@ -47292,6 +47716,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -47920,6 +48348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1545281698 stripped
@@ -47993,6 +48425,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -48125,6 +48561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1561992502 stripped
@@ -48199,6 +48639,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (76)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1567774477 stripped
@@ -48272,6 +48716,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -49097,6 +49545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (87)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1589668661 stripped
@@ -49171,6 +49623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1596800789
@@ -49239,6 +49695,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -49477,6 +49937,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -49934,6 +50398,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -50733,6 +51201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1653317288 stripped
@@ -51187,6 +51659,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1673265666 stripped
@@ -51260,6 +51736,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (53)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -51371,6 +51851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1683827991 stripped
@@ -51445,6 +51929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1685517759 stripped
@@ -51518,6 +52006,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -63025,6 +63517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (51)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1716606646 stripped
@@ -63161,6 +63657,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1727790251
@@ -63229,6 +63729,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (43)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -63467,6 +63971,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -63984,6 +64492,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1769765818 stripped
@@ -64058,6 +64570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1793486409
@@ -64126,6 +64642,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -64206,6 +64726,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1813122916 stripped
@@ -64279,6 +64803,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -64708,6 +65236,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -65153,6 +65685,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1862063264
@@ -65418,6 +65954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1875544670 stripped
@@ -65655,6 +66195,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -66767,7 +67311,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dbe80190c9adea34c8c8845ca4a17934, type: 2}
+  - {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69532,6 +70076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1952777062 stripped
@@ -69606,6 +70154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &1954196147 stripped
@@ -69679,6 +70231,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -69821,7 +70377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1964603785
 Transform:
   m_ObjectHideFlags: 0
@@ -69970,6 +70526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1972538088
@@ -70101,6 +70661,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1983889691
@@ -70168,7 +70732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1091177717709575302, guid: a5d3055274e8da94ea51b8c33caa6c80, type: 3}
       propertyPath: spring
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1091177717709575302, guid: a5d3055274e8da94ea51b8c33caa6c80, type: 3}
       propertyPath: maxDistance
@@ -70504,7 +71068,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1990227166
 Transform:
   m_ObjectHideFlags: 0
@@ -70602,6 +71166,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (71)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -70990,6 +71558,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &1998617078
@@ -71121,6 +71693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!1001 &2034802631
@@ -71189,6 +71765,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -71259,6 +71839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &2042001961 stripped
@@ -71281,7 +71865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2045833606
 Transform:
   m_ObjectHideFlags: 0
@@ -72428,6 +73012,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &2092896439 stripped
@@ -72502,6 +73090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlueMushrooms (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
 --- !u!4 &2100335893 stripped
@@ -72575,6 +73167,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -72706,6 +73302,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -72944,6 +73544,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
@@ -73686,6 +74290,10 @@ PrefabInstance:
     - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
       propertyPath: m_Name
       value: BlueMushrooms (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5612277051154615784, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 735ef9f72a924954f964e2b4cc1a0dfd, type: 3}
