@@ -16,6 +16,9 @@ public class thirdSoul : MonoBehaviour
     public AudioClip runeCast;
     public AudioSource source;
     public AudioClip catchCast;
+    public AudioClip incorrectcast;
+    public AudioClip grappleshoot;
+    public AudioClip bounce;
 
 
     [Header("Ground Detections")]
@@ -26,7 +29,7 @@ public class thirdSoul : MonoBehaviour
     //stores the set radius
     float groundRadiusStored;
     [Tooltip("Layers the player can place runes on and layers that will enable the player controller")]
-    public LayerMask RuneAble, GroundAble;
+    public LayerMask RuneAble, GroundAble, playerLayer;
     [Tooltip("how long in seconds the player needs to be off the ground until the player is !Grounded")]
     public float offGroundTimerEnd;
     //the fluid timer that increases until offGroundTimerEnd
@@ -86,19 +89,7 @@ public class thirdSoul : MonoBehaviour
     float runeTimer;
     float scrollPosition;
     int launchScroll;
-
-    [Space(10)]
-    [Header("Health")]
-    [Tooltip("Current Player Health")]
-    [Range(0,1)]
-    public float Damage;
-    //whether the player is being hurt or not
-    public bool inPain;
-    Image HealthUI;
-    [Tooltip("How much health percentage is lost per second while being damaged")]
-    public float HealthLoss;
-    [Tooltip("How much health percentage is gained per second while  not being damaged")]
-    public float HealthGain;
+    bool launchPlaced;
 
     [Space(10)]
     [Header("Runes")]
@@ -156,8 +147,6 @@ public class thirdSoul : MonoBehaviour
         SoulSwitch(true);
         groundRadiusStored = GroundRadius;
 
-        HealthUI = GameObject.Find("HealthUI").GetComponent<Image>();
-
         for(int i = 0; i < MaxLaunchCatchRunes; i++)
         {
             LCRuneSets.Add(null);
@@ -173,7 +162,6 @@ public class thirdSoul : MonoBehaviour
         WhatsUnder();
         Move();
         runeTimer++;
-        Healing();
 
         //Debug.Log("RigidBody: " + rigidBody.velocity + " Controller: " + controller.velocity);
         //Debug.Log("Rigid Velocity: " + rigidBody.velocity.magnitude + " Controller Velocity: " + controller.velocity.magnitude);
@@ -190,46 +178,6 @@ public class thirdSoul : MonoBehaviour
         controller.enabled = Grounded;
         rigidBody.isKinematic = Grounded;
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-        //Debug.Log(other.name);
-        if(other.transform.tag == "Deadly" && Damage < 0.33)
-        {
-            Damage = 0.33f;
-        }else if(other.transform.tag == "Deadly" && Damage < 1)
-        {
-            Damage += HealthLoss;
-            inPain = true;
-        }
-
-    }
-
-    public void LoadScene(int sceneID)
-    {
-        if (Damage <= 0)
-        {
-            SceneManager.LoadScene(3);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.transform.tag == "Deadly" && Damage > 0)
-        {
-            inPain = false;
-        }
-    }
-
-    void Healing()
-    {
-        Damage += !inPain && Damage > 0 ? HealthGain : 0;
-        var tempColor = HealthUI.color;
-        tempColor.a = Damage;
-        HealthUI.color = tempColor;
-        HealthUI.fillAmount = Damage;
-    }
-
 
     //Will switch between physics controllers
     //Character Controller = True
@@ -273,25 +221,11 @@ public class thirdSoul : MonoBehaviour
         }
         
     }
-
-    /*private void OnCollisionStay(Collision collision)
-    {
-        
-        if(collision.transform.tag == "Platform")
-        {
-            
-            controller.SimpleMove(collision.transform.position - platformPositionStorage);
-            Debug.Log(collision.transform.position - platformPositionStorage);
-            Debug.Log("goo");
-            platformPositionStorage = collision.transform.position;
-            
-        }
-    }*/
-
     public void GrapplePhysicsStart()
     {
        rigidBody.velocity = rigidBody.velocity / 3;
        rigidBody.useGravity = false;
+        
     }
 
     public void GrapplePhysicsEnd()
@@ -330,8 +264,9 @@ public class thirdSoul : MonoBehaviour
         if (context.performed) 
         { 
             grappleActive = !grappleActive;
-            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive); 
-            
+            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive);
+
+            source.PlayOneShot(grappleshoot);
         }
     }
 
@@ -424,6 +359,7 @@ public class thirdSoul : MonoBehaviour
             GroundRadius = 0;
 
             rigidBody.AddForce(new Vector3(controller.velocity.x, JumpHeight, controller.velocity.z), ForceMode.Impulse);
+            source.PlayOneShot(bounce);
 
         }
         else if(context.canceled)
@@ -448,6 +384,56 @@ public class thirdSoul : MonoBehaviour
 
     }
 
+    //Checks the surface being aimed at and instanciates a rune on it if valid
+    private void spawn_Rune(string type)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~playerLayer) && RuneRefresh <= runeTimer)
+        {
+            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            runeTimer = 0;
+            if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            {
+                BounceRunes.Add(Instantiate(bounceRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)));
+                BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform); 
+            }
+            else if (type == "launch" && LaunchCatchStorage[0] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            {
+                LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
+                launchPlaced = true;
+                if (LaunchCatchStorage[1] != null)
+                {
+                    LCRuneSets[launchScroll] = LaunchCatchStorage[0];
+                    LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
+                    Array.Clear(LaunchCatchStorage,0,2);
+                    LaunchIconsPlaced[launchScroll].SetActive(true);
+                }
+            }
+            else if (type == "catch" && LaunchCatchStorage[1] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            {
+                LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
+                launchPlaced = false;
+                if (LaunchCatchStorage[0] != null)
+                {
+                    LCRuneSets[launchScroll] = LaunchCatchStorage[0];
+                    LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
+                    Array.Clear(LaunchCatchStorage, 0, 2);
+                    LaunchIconsPlaced[launchScroll].SetActive(true);
+                }
+
+                source.PlayOneShot(catchCast);
+                
+            }
+            else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+
+
+        }
+        else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+    }
+    
+    /*
     //Checks the surface being aimed at and instanciates a rune on it if valid
     private void spawn_Rune(string type)
     {
@@ -488,16 +474,23 @@ public class thirdSoul : MonoBehaviour
                 source.PlayOneShot(catchCast);
                 
             }
+            else if (!(RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
+            {
+                source.PlayOneShot(incorrectcast);
+            }
 
-            
+
         }
     }
+    */
+
     
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~playerLayer) && RuneRefresh <= runeTimer)
         {
+            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             { 
@@ -513,6 +506,8 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[0].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
+
+                launchPlaced = true;
             }
             else if(type == "catch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
@@ -520,11 +515,56 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
 
+                launchPlaced = false;
+
                 source.PlayOneShot(catchCast);
             }
+            else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
         }
+        else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
 
+    //if primary is clicked then a bounceRune will be spawned
+    public void Primary(InputAction.CallbackContext context)
+    {
+
+        
+        if (!launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); launchPlaced = true; }
+        else if (!launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
+        {
+            LaunchCatchTemp[0] = LCRuneSets[launchScroll];
+            LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
+            move_Rune("launch");
+        }
+        else if (launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch"); launchPlaced = false; }
+        else if (launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
+        {
+            LaunchCatchTemp[0] = LCRuneSets[launchScroll];
+            LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
+            move_Rune("catch");
+        }
+        source.PlayOneShot(runeCast);
+        
+        if(context.canceled)
+        {
+            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+        }
+
+    }
+
+    public void Secondary(InputAction.CallbackContext context)
+    {
+        
+        if (!grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
+        else if (!grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
+
+        if (context.canceled)
+        {
+            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+        }
+    }
+    
+    /*
     //if primary is clicked then a bounceRune will be spawned
     public void Primary(InputAction.CallbackContext context)
     {
@@ -553,6 +593,8 @@ public class thirdSoul : MonoBehaviour
             move_Rune("catch"); 
         }
     }
+    */
+
 
     public void Update()
     {

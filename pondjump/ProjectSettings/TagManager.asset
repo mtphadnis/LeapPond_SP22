@@ -9,11 +9,13 @@ TagManager:
   - LaunchRune
   - CatchRune
   - Platform
+  - PopUpText
+  - PopUpImage
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Checkpoint
   - Water
   - UI
   - Ground
