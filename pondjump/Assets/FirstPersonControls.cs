@@ -265,7 +265,7 @@ public class @FirstPersonControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""08ef0722-739f-4c69-9ea4-35b52f28399e"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

@@ -3,7 +3,18 @@ guid: e2ae76c059a91bf41a1155b4b8c29ad7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - runeCast: {fileID: 8300000, guid: 4ee316673aa454de1b0079504db8b6d9, type: 3}
+  - source: {instanceID: 0}
+  - catchCast: {fileID: 8300000, guid: 280c9910c3a5845248d920226f0df92b, type: 3}
+  - incorrectcast: {fileID: 8300000, guid: 10d34f71a191bc94087b622369dc42ab, type: 3}
+  - grappleshoot: {fileID: 8300000, guid: 0298af5a84beac94c9e4eb5689a98a4a, type: 3}
+  - bounce: {fileID: 8300000, guid: 8c721a5f8b29475499b33178789a4963, type: 3}
+  - Cube: {instanceID: 0}
+  - launchRunePrefab: {instanceID: 0}
+  - bounceRunePrefab: {instanceID: 0}
+  - catchRunePrefab: {instanceID: 0}
+  - grapplingGun: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
