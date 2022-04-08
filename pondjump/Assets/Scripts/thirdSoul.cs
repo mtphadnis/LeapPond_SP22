@@ -17,6 +17,8 @@ public class thirdSoul : MonoBehaviour
     public AudioSource source;
     public AudioClip catchCast;
     public AudioClip incorrectcast;
+    public AudioClip grappleshoot;
+    public AudioClip bounce;
 
 
     [Header("Ground Detections")]
@@ -223,6 +225,7 @@ public class thirdSoul : MonoBehaviour
     {
        rigidBody.velocity = rigidBody.velocity / 3;
        rigidBody.useGravity = false;
+        
     }
 
     public void GrapplePhysicsEnd()
@@ -261,8 +264,9 @@ public class thirdSoul : MonoBehaviour
         if (context.performed) 
         { 
             grappleActive = !grappleActive;
-            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive); 
-            
+            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive);
+
+            source.PlayOneShot(grappleshoot);
         }
     }
 
@@ -355,6 +359,7 @@ public class thirdSoul : MonoBehaviour
             GroundRadius = 0;
 
             rigidBody.AddForce(new Vector3(controller.velocity.x, JumpHeight, controller.velocity.z), ForceMode.Impulse);
+            source.PlayOneShot(bounce);
 
         }
         else if(context.canceled)
