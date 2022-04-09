@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1086192722158992155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -176,19 +176,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5375764679783317841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6520136928688615175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5015d6fc7c10c4b4b91b91f2b94c5f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreObj: {fileID: 2217210655969431578}
 --- !u!114 &630612427281347045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,6 +195,19 @@ MonoBehaviour:
   pT_list: 
   userName: {fileID: 2217210657300995787}
   totalScore: {fileID: 2217210656321120639}
+--- !u!114 &5375764679783317841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6520136928688615175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5015d6fc7c10c4b4b91b91f2b94c5f27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreObj: {fileID: 2217210655969431578}
 --- !u!1 &8421639899781944458
 GameObject:
   m_ObjectHideFlags: 0

@@ -204,8 +204,8 @@ public class saveGameFile : MonoBehaviour
         /// as well as a score
         /// 
 
-        curUn = "sirHolderofPlaces";
-        curPt = Random.Range(0,7);
+        curUn = "sirHolderofPlaces"; 
+        curPt = CheckpointDeathManager.DeathCount;
 
         //curUn = saveFileVers2.playerName;
         //curPt = saveFileVers2.playerScore;
