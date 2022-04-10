@@ -17,6 +17,8 @@ public class thirdSoul : MonoBehaviour
     public AudioSource source;
     public AudioClip catchCast;
     public AudioClip incorrectcast;
+    public AudioClip grappleshoot;
+    public AudioClip bounce;
 
 
     [Header("Ground Detections")]
@@ -27,7 +29,7 @@ public class thirdSoul : MonoBehaviour
     //stores the set radius
     float groundRadiusStored;
     [Tooltip("Layers the player can place runes on and layers that will enable the player controller")]
-    public LayerMask RuneAble, GroundAble, NonRuneAble;
+    public LayerMask RuneAble, GroundAble, playerLayer;
     [Tooltip("how long in seconds the player needs to be off the ground until the player is !Grounded")]
     public float offGroundTimerEnd;
     //the fluid timer that increases until offGroundTimerEnd
@@ -223,6 +225,7 @@ public class thirdSoul : MonoBehaviour
     {
        rigidBody.velocity = rigidBody.velocity / 3;
        rigidBody.useGravity = false;
+        
     }
 
     public void GrapplePhysicsEnd()
@@ -261,8 +264,9 @@ public class thirdSoul : MonoBehaviour
         if (context.performed) 
         { 
             grappleActive = !grappleActive;
-            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive); 
-            
+            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive);
+
+            source.PlayOneShot(grappleshoot);
         }
     }
 
@@ -355,6 +359,7 @@ public class thirdSoul : MonoBehaviour
             GroundRadius = 0;
 
             rigidBody.AddForce(new Vector3(controller.velocity.x, JumpHeight, controller.velocity.z), ForceMode.Impulse);
+            source.PlayOneShot(bounce);
 
         }
         else if(context.canceled)
@@ -383,9 +388,9 @@ public class thirdSoul : MonoBehaviour
     private void spawn_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~playerLayer) && RuneRefresh <= runeTimer)
         {
-            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
             {
@@ -396,6 +401,7 @@ public class thirdSoul : MonoBehaviour
             {
                 LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
+                launchPlaced = true;
                 if (LaunchCatchStorage[1] != null)
                 {
                     LCRuneSets[launchScroll] = LaunchCatchStorage[0];
@@ -408,6 +414,7 @@ public class thirdSoul : MonoBehaviour
             {
                 LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
+                launchPlaced = false;
                 if (LaunchCatchStorage[0] != null)
                 {
                     LCRuneSets[launchScroll] = LaunchCatchStorage[0];
@@ -467,7 +474,7 @@ public class thirdSoul : MonoBehaviour
                 source.PlayOneShot(catchCast);
                 
             }
-            else if ((NonRuneAble & (1 << hit.transform.gameObject.layer)) != 0)
+            else if (!(RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 source.PlayOneShot(incorrectcast);
             }
@@ -481,8 +488,9 @@ public class thirdSoul : MonoBehaviour
     private void move_Rune(string type)
     {
         RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~playerLayer) && RuneRefresh <= runeTimer)
         {
+            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             { 
@@ -498,12 +506,16 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[0].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
+
+                launchPlaced = true;
             }
             else if(type == "catch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchTemp[1].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
+
+                launchPlaced = false;
 
                 source.PlayOneShot(catchCast);
             }
@@ -523,7 +535,6 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("launch");
-            launchPlaced = true;
         }
         else if (launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch"); launchPlaced = false; }
         else if (launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
@@ -531,7 +542,6 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch");
-            launchPlaced = false;
         }
         source.PlayOneShot(runeCast);
         

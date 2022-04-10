@@ -26,6 +26,8 @@ public class CheckpointDeathManager : MonoBehaviour
     public GameObject DeathMenuCanvas;
     [Tooltip("Last Checkpoint you hit")]
     public Vector3 Checkpoint;
+    [Tooltip("Amount of times a player has died on a given session")]
+    public static int DeathCount;
 
     Scene DeathMenu;
 
@@ -51,11 +53,15 @@ public class CheckpointDeathManager : MonoBehaviour
 
         if (Damage >= 1 && !GodMode && SceneDeath)
         {
+            DeathCount++;
+            Debug.Log("DeathCount: " + DeathCount);
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(1);
         }
         else if (Damage >= 1 && !GodMode && !SceneDeath)
         {
+            DeathCount++;
+            Debug.Log("DeathCount: " + DeathCount);
             Cursor.lockState = CursorLockMode.None;
             PauseGame();
             DeathMenuCanvas.SetActive(true);
