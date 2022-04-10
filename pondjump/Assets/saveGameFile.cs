@@ -38,8 +38,8 @@ public class saveGameFile : MonoBehaviour
     {
         Directory.CreateDirectory(Application.streamingAssetsPath + "/Save_Data/");
         
-        userName = GameObject.Find("userName").GetComponent<Text>();
-        totalScore = GameObject.Find("totalScore").GetComponent<Text>();
+        //userName = GameObject.Find("userName").GetComponent<Text>();
+        //totalScore = GameObject.Find("totalScore").GetComponent<Text>();
 
     }
 

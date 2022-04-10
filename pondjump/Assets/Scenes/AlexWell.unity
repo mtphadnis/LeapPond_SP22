@@ -2242,6 +2242,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrosshairCanvas 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3563139891575917274, guid: b3aa18446b8cd9442b286f34c4ef5238, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100958131407513092, guid: b3aa18446b8cd9442b286f34c4ef5238, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9114174312474421951, guid: b3aa18446b8cd9442b286f34c4ef5238, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -13461,11 +13469,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429991177}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &451683541 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4728957383455741225, guid: b3aa18446b8cd9442b286f34c4ef5238, type: 3}
-  m_PrefabInstance: {fileID: 134932767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &453899505
 Mesh:
   m_ObjectHideFlags: 0
@@ -26563,6 +26566,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794185060}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &797229525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3563139891575917274, guid: b3aa18446b8cd9442b286f34c4ef5238, type: 3}
+  m_PrefabInstance: {fileID: 134932767}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &820208752
 Mesh:
   m_ObjectHideFlags: 0
@@ -26898,7 +26906,7 @@ PrefabInstance:
     - target: {fileID: 8434033375879604670, guid: 9e806fff7c58ff24188c276c52632877, type: 3}
       propertyPath: PauseCanvas1
       value: 
-      objectReference: {fileID: 451683541}
+      objectReference: {fileID: 797229525}
     - target: {fileID: 8434033375879604671, guid: 9e806fff7c58ff24188c276c52632877, type: 3}
       propertyPath: m_Name
       value: PauseManager
