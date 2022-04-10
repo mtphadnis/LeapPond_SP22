@@ -68,6 +68,7 @@ public class pausemenu : MonoBehaviour
         AudioManager.SetActive(true);
         paused = false;
         PauseCanvas1.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }
