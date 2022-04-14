@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6371895687072809386
+--- !u!1 &4852699953574606401
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,11 +8,121 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6371895687072809365}
-  - component: {fileID: 6371895687072809361}
-  - component: {fileID: 6371895687072809366}
-  - component: {fileID: 6371895687072809367}
-  - component: {fileID: 6371895687072809364}
+  - component: {fileID: 4852699953574606400}
+  - component: {fileID: 4852699953574606403}
+  m_Layer: 0
+  m_Name: orbAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4852699953574606400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852699953574606401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4852699955010315545}
+  m_Father: {fileID: 4852699954291354644}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -343.91077, z: 0}
+--- !u!111 &4852699953574606403
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852699953574606401}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 7618b1eed27c043c797cf5d4e8977ff0, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 7618b1eed27c043c797cf5d4e8977ff0, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!1 &4852699954291354645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4852699954291354644}
+  - component: {fileID: 8749656843634333590}
+  - component: {fileID: 6821568319521870855}
+  m_Layer: 0
+  m_Name: Orb Sprint-Jump intro 1
+  m_TagString: PopUpImage
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4852699954291354644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852699954291354645}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 93.46, y: 1.01, z: 177.98}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4852699953574606400}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8749656843634333590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852699954291354645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 282232e76fe975244a12bf8e1116f118, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeliveryText: Hm, this jump is a bit longer than the last one. Maybe I can make
+    it if I run a bit faster.
+  DeliveryImage: {fileID: 21300000, guid: 4f102bb03288545e2afc5caabf38614d, type: 3}
+--- !u!136 &6821568319521870855
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852699954291354645}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.49013138
+  m_Height: 2.310015
+  m_Direction: 1
+  m_Center: {x: 0.11532605, y: 1.0567778, z: -0.008872986}
+--- !u!1 &4852699955010315558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4852699955010315545}
+  - component: {fileID: 4852699955010315549}
+  - component: {fileID: 4852699955010315546}
+  - component: {fileID: 4852699955010315547}
+  - component: {fileID: 4852699955010315544}
   m_Layer: 0
   m_Name: glow-orb
   m_TagString: Untagged
@@ -20,27 +130,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6371895687072809365
+--- !u!4 &4852699955010315545
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687072809386}
+  m_GameObject: {fileID: 4852699955010315558}
   m_LocalRotation: {x: -0.055896968, y: 0.0000002682209, z: 0.2402642, w: 0.9690969}
   m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
-  m_Father: {fileID: 6371895687654560460}
+  m_Father: {fileID: 4852699953574606400}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -6.22, y: -1.548, z: 27.933}
---- !u!114 &6371895687072809361
+--- !u!114 &4852699955010315549
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687072809386}
+  m_GameObject: {fileID: 4852699955010315558}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8233d90336aea43098adf6dbabd606a2, type: 3}
@@ -600,13 +710,13 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!23 &6371895687072809366
+--- !u!23 &4852699955010315546
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687072809386}
+  m_GameObject: {fileID: 4852699955010315558}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -641,21 +751,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &6371895687072809367
+--- !u!33 &4852699955010315547
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687072809386}
+  m_GameObject: {fileID: 4852699955010315558}
   m_Mesh: {fileID: 0}
---- !u!64 &6371895687072809364
+--- !u!64 &4852699955010315544
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687072809386}
+  m_GameObject: {fileID: 4852699955010315558}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -663,114 +773,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &6371895687498893465
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6371895687498893464}
-  - component: {fileID: 7086628629983261466}
-  - component: {fileID: 5016677406078464139}
-  m_Layer: 0
-  m_Name: Glow Orb (1)
-  m_TagString: PopUpImage
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6371895687498893464
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687498893465}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 98.62, y: 0.05437565, z: 124.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6371895687654560460}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7086628629983261466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687498893465}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 282232e76fe975244a12bf8e1116f118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeliveryText: Hmm I might be able to escape this room with a lily pad. If I put
-    the target on the floor shorly in front of the lily, it should help me hop through
-    that window.
-  DeliveryImage: {fileID: 21300000, guid: afa188e897ffc4c6686af16526a7bfb0, type: 3}
---- !u!136 &5016677406078464139
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687498893465}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.49013138
-  m_Height: 2.310015
-  m_Direction: 1
-  m_Center: {x: 0.11532605, y: 1.0567778, z: -0.008872986}
---- !u!1 &6371895687654560461
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6371895687654560460}
-  - component: {fileID: 6371895687654560463}
-  m_Layer: 0
-  m_Name: orbAnim
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6371895687654560460
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687654560461}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6371895687072809365}
-  m_Father: {fileID: 6371895687498893464}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -343.91077, z: 0}
---- !u!111 &6371895687654560463
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371895687654560461}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 7618b1eed27c043c797cf5d4e8977ff0, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 7618b1eed27c043c797cf5d4e8977ff0, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
