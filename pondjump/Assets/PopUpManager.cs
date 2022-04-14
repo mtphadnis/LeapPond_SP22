@@ -14,6 +14,8 @@ public class PopUpManager : MonoBehaviour
     Sprite _recievedImage;
     bool textOnly;
 
+    public int Collection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,12 @@ public class PopUpManager : MonoBehaviour
             AudioListener.pause = true;
             Cursor.lockState = CursorLockMode.None;
             other.gameObject.SetActive(false);
+        }
+        else if(other.transform.tag == "Collectable")
+        {
+            Collection++;
+            other.gameObject.SetActive(false);
+            Debug.Log("Score: " + Collection);
         }
     }
 
