@@ -1436,14 +1436,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1232835324}
         m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 2
           m_BoolArgument: 0
@@ -2386,7 +2386,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1232835324}
         m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -3241,7 +3241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1232835323}
         m_TargetAssemblyTypeName: LoadWell, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 5
@@ -3251,18 +3251,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 1
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
-        m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1060901447
@@ -3516,6 +3504,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2368596265619700110, guid: 918f6630f7d698c48941fa06fceefbb7, type: 3}
   m_PrefabInstance: {fileID: 2368596266823637826}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1232835323 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5262931014991482303, guid: aa8c6f55c38631b4288fb74ec321c8f8, type: 3}
+  m_PrefabInstance: {fileID: 718081976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bfd6da51a7ad346951b54fc72cb984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1232835324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5262931014991482301, guid: aa8c6f55c38631b4288fb74ec321c8f8, type: 3}
+  m_PrefabInstance: {fileID: 718081976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83118cf804af828498eed070ef44fca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1387325065
 GameObject:
   m_ObjectHideFlags: 0
