@@ -2786,6 +2786,7 @@ GameObject:
   - component: {fileID: 5927180999283953871}
   - component: {fileID: 5927180999283953869}
   - component: {fileID: 5927180999283953870}
+  - component: {fileID: 7146315344062703503}
   m_Layer: 7
   m_Name: Player0407
   m_TagString: Player
@@ -3099,10 +3100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ae76c059a91bf41a1155b4b8c29ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runeCast: {fileID: 0}
-  source: {fileID: 0}
-  catchCast: {fileID: 0}
-  incorrectcast: {fileID: 0}
+  runeCast: {fileID: 8300000, guid: 4ee316673aa454de1b0079504db8b6d9, type: 3}
+  source: {fileID: 7146315344062703503}
+  catchCast: {fileID: 8300000, guid: 280c9910c3a5845248d920226f0df92b, type: 3}
+  incorrectcast: {fileID: 8300000, guid: 10d34f71a191bc94087b622369dc42ab, type: 3}
+  grappleshoot: {fileID: 8300000, guid: 0298af5a84beac94c9e4eb5689a98a4a, type: 3}
+  bounce: {fileID: 8300000, guid: 8c721a5f8b29475499b33178789a4963, type: 3}
   GroundedHieght: -0.5
   GroundRadius: 0.6
   RuneAble:
@@ -3111,7 +3114,7 @@ MonoBehaviour:
   GroundAble:
     serializedVersion: 2
     m_Bits: 12352
-  NonRuneAble:
+  playerLayer:
     serializedVersion: 2
     m_Bits: 0
   offGroundTimerEnd: 0.33
@@ -3242,6 +3245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PopUpTextCanvas: {fileID: 5927181000478604308}
   PopUpImageCanvas: {fileID: 5927180999769216129}
+  Collection: 0
 --- !u!114 &5927180999283953869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3275,6 +3279,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2916770a545246e44aca8a9ed0d199df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &7146315344062703503
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927180999283953862}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5927180999300622809
 GameObject:
   m_ObjectHideFlags: 0
