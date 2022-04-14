@@ -21,25 +21,25 @@ public class GrapplingGun : MonoBehaviour
     private SpringJoint joint;
     float refreshTimer;
 
-    bool grappleActive, grappling;
+    bool grappling;
     Transform StuckToo;
     Vector3 StartingPoint;
 
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
-        grappleActive = false;
         refreshTimer = Refresh;
     }
 
     public void Grapple(InputAction.CallbackContext context)
     {
-        if (context.started && grappleActive && refreshTimer >= Refresh)
+        if (context.started && refreshTimer >= Refresh)
         {
             StartGrapple();
         }
         else if (context.canceled)
         {
+            Debug.Log("Cancelled");
             GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
             StopGrapple();
         }
@@ -151,11 +151,6 @@ public class GrapplingGun : MonoBehaviour
         {
             GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(255, 0, 0, 255);
         }
-    }
-
-    public void GrappleEnable(bool state)
-    {
-        grappleActive = state;
     }
 
 
