@@ -19,6 +19,7 @@ public class thirdSoul : MonoBehaviour
     public AudioClip incorrectcast;
     public AudioClip grappleshoot;
     public AudioClip bounce;
+    public ChangeSceneButton mousey;
 
 
     [Header("Ground Detections")]
@@ -113,6 +114,7 @@ public class thirdSoul : MonoBehaviour
     public GameObject[] LaunchIconActive;
     public GameObject[] LaunchIconsPlaced;
     public GameObject[] LaunchIconsPlacedBG;
+    public Slider mousesense;
 
 
     [Space(10)]
@@ -155,6 +157,9 @@ public class thirdSoul : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         LaunchIndicatorCheck(0);
+        
+
+        mousey = GameObject.Find("SceneManager").GetComponent<ChangeSceneButton>();
     }
 
     private void FixedUpdate()
@@ -372,7 +377,8 @@ public class thirdSoul : MonoBehaviour
     //Rotates the player horizontally and the camera vertically in accordance with the mouse
     public void Look(InputAction.CallbackContext context)
     {
-
+        mousesense = mousey.mousey;
+        mouseSensitivity = mousey.valSlide;
         float mouseX = context.ReadValue<Vector2>().x * mouseSensitivity * Time.deltaTime;
         float mouseY = context.ReadValue<Vector2>().y * mouseSensitivity * Time.deltaTime;
 
@@ -381,6 +387,9 @@ public class thirdSoul : MonoBehaviour
 
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+
+      
+
 
     }
 

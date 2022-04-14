@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2824593997610551501}
   - component: {fileID: 2824593997610551503}
   - component: {fileID: 2824593997610551502}
+  - component: {fileID: 4197635277258232270}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -45,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83118cf804af828498eed070ef44fca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousey: {fileID: 0}
+  valSlide: 0
   change: 0
   playselect: {fileID: 2824593997610551502}
   scrollbeep: {fileID: 8300000, guid: 4d956aebed8d24757868bed47c71c612, type: 3}
@@ -157,3 +160,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4197635277258232270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2824593997610551498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322d78f16e45f6c4e8e18adbf90bd0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
