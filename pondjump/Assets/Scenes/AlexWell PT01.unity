@@ -42372,6 +42372,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8434033375879604670, guid: 9e806fff7c58ff24188c276c52632877, type: 3}
+      propertyPath: AimCanvas
+      value: 
+      objectReference: {fileID: 8200469755306244658}
+    - target: {fileID: 8434033375879604670, guid: 9e806fff7c58ff24188c276c52632877, type: 3}
       propertyPath: AudioManager
       value: 
       objectReference: {fileID: 1573213150}
@@ -58790,6 +58794,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &8200469755306244658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2561554762452311191, guid: 26f4c6d7df9674140832f068e1e4b4c9, type: 3}
+  m_PrefabInstance: {fileID: 8200469755306244655}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8867017819422126954 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 774639413721958725, guid: 26f4c6d7df9674140832f068e1e4b4c9, type: 3}
