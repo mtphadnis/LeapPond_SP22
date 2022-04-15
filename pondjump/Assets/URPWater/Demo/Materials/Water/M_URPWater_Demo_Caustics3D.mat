@@ -179,7 +179,7 @@ Material:
     - _Metallic: 0
     - _NormalFar: 0
     - _NormalFarDistance: 100
-    - _NormalMapAIntensity: 0.497
+    - _NormalMapAIntensity: 0.542
     - _NormalMapBIntensity: 1
     - _NormalMapFarIntensity: 1
     - _NormalsMode: 0
@@ -193,7 +193,7 @@ Material:
     - _ReflectionFresnelNormal: 0.264
     - _ReflectionIntensity: 1
     - _ReflectionMode: 2
-    - _ReflectionRoughness: 0.1
+    - _ReflectionRoughness: 0.349
     - _Scattering: 0
     - _ScatteringIntensity: 1
     - _ScatteringRangeMax: 2
