@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: M_URPWater_Demo_FoamCaps
   m_Shader: {fileID: 4800000, guid: 206e4b0fd7976c742b851eef70622872, type: 3}
-  m_ShaderKeywords: _CAPS_SCATTERING_ON _CAUSTICSMODE_2D _COLORMODE_COLORS _DISPLACEMENTMODE_GERSTNER
+  m_ShaderKeywords: _CAPS_SCATTERING_ON _CAUSTICSMODE_2D _COLORMODE_GRADIENT _DISPLACEMENTMODE_GERSTNER
     _DISPLACEMENT_MASK_ON _EDGEFADE_ON _FOAM_ON _FOAM_WHITECAPS_ON _NORMALSMODE_SINGLE
     _REFLECTIONMODE_PROBES _SCATTERING_ON
   m_LightmapFlags: 4
@@ -94,7 +94,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RefractionColor:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 7018336d83eb95f4896119931c873798, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -136,7 +136,7 @@ Material:
     - _CausticsTiling3D: 0.5
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorMode: 0
+    - _ColorMode: 1
     - _Cull: 2
     - _CullMode: 2
     - _CutOff: 0.5
@@ -147,7 +147,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DispMask: 1
     - _DisplacementMode: 1
-    - _Distortion: 7
+    - _Distortion: 6
     - _DoubleSided: 0
     - _DstBlend: 0
     - _DynamicDisplacement: 1
@@ -160,9 +160,9 @@ Material:
     - _FlowIntensity: 0.12
     - _FlowSpeed: 10
     - _Foam: 1
-    - _FoamCapsIntensity: 1
-    - _FoamCapsRangeMax: 1.196378
-    - _FoamCapsRangeMin: 0.6321465
+    - _FoamCapsIntensity: 0.5
+    - _FoamCapsRangeMax: 0.91050327
+    - _FoamCapsRangeMin: 0.346272
     - _FoamDistortion: 0.07
     - _FoamRippleDistance: 0.31
     - _FoamRippleSize: 1.46
@@ -219,11 +219,11 @@ Material:
     - _CausticsSpeed: {r: 1, g: 1, b: -0.2, a: -0.33}
     - _CausticsSpeed3D: {r: 1, g: 1, b: 1, a: 1}
     - _CausticsTiling: {r: 0.2, g: 0.2, b: 0.3, a: 0.3}
-    - _Color: {r: 0.71217096, g: 0.24390352, b: 0.8207547, a: 1}
+    - _Color: {r: 0.08109448, g: 0.9433962, b: 0, a: 1}
     - _DepthColor: {r: 0.010386683, g: 0.0754717, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowTiling: {r: 1, g: 1, b: 0, a: 0}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 0.27926892, g: 0.9056604, b: 0.21787111, a: 1}
     - _FoamTiling: {r: 1, g: 1, b: 1, a: 1}
     - _GerstnerWaveA: {r: 0.84712195, g: -0.53139853, b: 3.02, a: 6.55}
     - _GerstnerWaveB: {r: 0.41945216, g: -0.9077774, b: 3.17, a: 8.9}
@@ -235,16 +235,16 @@ Material:
     - _NormalMapBTilings: {r: 1, g: 1, b: 1, a: 1}
     - _NormalMapFarSpeeds: {r: 1, g: 1, b: 1, a: 1}
     - _NormalMapFarTilings: {r: 1, g: 1, b: 0.5, a: 0.5}
-    - _RefractionKey1: {r: -1, g: -1, b: -1, a: -1}
-    - _RefractionKey2: {r: -1, g: -1, b: -1, a: -1}
-    - _RefractionKey3: {r: -1, g: -1, b: -1, a: -1}
+    - _RefractionKey1: {r: 0.4854483, g: 0.8962264, b: 0.29169634, a: 0}
+    - _RefractionKey2: {r: 0.4921308, g: 0.8975741, b: 0.3008951, a: 0.6644999}
+    - _RefractionKey3: {r: 1, g: 1, b: 1, a: 1}
     - _RefractionKey4: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey5: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey6: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey7: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey8: {r: -1, g: -1, b: -1, a: -1}
-    - _ScatteringColor: {r: 0.2783019, g: 1, b: 0.78321666, a: 1}
-    - _SpecColor: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
+    - _ScatteringColor: {r: 0.46342114, g: 0.7735849, b: 0.6808729, a: 1}
+    - _SpecColor: {r: 0.46327662, g: 0.9811321, b: 0.24528302, a: 1}
     - _UnderWaterColor: {r: 0.21226415, g: 0.46418187, b: 0.8490566, a: 0.1764706}
   m_BuildTextureStacks: []
 --- !u!114 &3734885289509101253
