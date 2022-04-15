@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Scenes/MainMenu/main menu.unity
     guid: 2af1c9860fc5d7047903795ca4d2e023
+  - enabled: 0
+    path: Assets/Scenes/Alex's Lab 02.unity
+    guid: ec9ae2d6c86c1994480c9da294b99069
+  - enabled: 0
+    path: Assets/Scenes/Menu Scenes/Death Menu.unity
+    guid: ea172982600de469d8f906b4a0daf34e
   - enabled: 1
     path: Assets/Alex's Lab/AlexWell PT01.unity
     guid: 952f1dfcfe8c12544814937d4e102574
@@ -20,11 +26,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AlexBasin.unity
     guid: 026649cee9529ca41a5088db23f309aa
-  - enabled: 0
-    path: Assets/Scenes/Menu Scenes/Death Menu.unity
-    guid: ea172982600de469d8f906b4a0daf34e
-  - enabled: 0
-    path: Assets/Scenes/Alex's Lab 02.unity
-    guid: ec9ae2d6c86c1994480c9da294b99069
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
