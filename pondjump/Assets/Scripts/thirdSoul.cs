@@ -89,7 +89,6 @@ public class thirdSoul : MonoBehaviour
     float runeTimer;
     float scrollPosition;
     int launchScroll;
-    bool launchPlaced;
 
     [Space(10)]
     [Header("Runes")]
@@ -117,8 +116,6 @@ public class thirdSoul : MonoBehaviour
 
     [Space(10)]
     [Header("Grapple")]
-    [Tooltip("If active [Secondary] will use grappling instead of Launch/Catch Runes")]
-    public bool grappleActive;
     [Tooltip("Grappleing hook object")]
     public GameObject grapplingGun;
     float reduction;
@@ -141,13 +138,13 @@ public class thirdSoul : MonoBehaviour
         }
     }
 
-    
+
     private void Start()
     {
         SoulSwitch(true);
         groundRadiusStored = GroundRadius;
 
-        for(int i = 0; i < MaxLaunchCatchRunes; i++)
+        for (int i = 0; i < MaxLaunchCatchRunes; i++)
         {
             LCRuneSets.Add(null);
         }
@@ -170,7 +167,7 @@ public class thirdSoul : MonoBehaviour
 
     private void LateUpdate()
     {
-        if(offGroundTimer > 0.5)
+        if (offGroundTimer > 0.5)
         {
             jumping = false;
             GroundRadius = groundRadiusStored;
@@ -203,7 +200,7 @@ public class thirdSoul : MonoBehaviour
             Grounded = true;
             SoulSwitch(true);
         }
-        else if(!Grounded && offGroundTimer < offGroundTimerEnd)
+        else if (!Grounded && offGroundTimer < offGroundTimerEnd)
         {
             gravity = Mathf.Lerp(gravity, TargetGravity, 0.01f);
             offGroundTimer += Time.deltaTime;
@@ -211,7 +208,7 @@ public class thirdSoul : MonoBehaviour
             Grounded = true;
             startSwitch = true;
         }
-        else if(!Grounded && offGroundTimer >= offGroundTimerEnd)
+        else if (!Grounded && offGroundTimer >= offGroundTimerEnd)
         {
             if (startSwitch && !jumping) { rigidBody.velocity = controller.velocity; startSwitch = false; }
             gravity = 0;
@@ -219,67 +216,56 @@ public class thirdSoul : MonoBehaviour
             Grounded = false;
             SoulSwitch(false);
         }
-        
+
     }
     public void GrapplePhysicsStart()
     {
-       rigidBody.velocity = rigidBody.velocity / 3;
-       rigidBody.useGravity = false;
-        
+        rigidBody.velocity = rigidBody.velocity / 3;
+        rigidBody.useGravity = false;
+
     }
 
     public void GrapplePhysicsEnd()
     {
         rigidBody.useGravity = true;
+        Debug.Log("End");
     }
 
     //Debugging position setter
     public void ResetPos(InputAction.CallbackContext context)
     {
-        if (context.performed) 
+        if (context.performed)
         {
             Instantiate(Cube, transform.position, Quaternion.FromToRotation(Vector3.up, Vector3.up));
-            transform.position = ResetPoint; 
-            
+            transform.position = ResetPoint;
+
         }
     }
 
     //Detects if Ctrl is being held
     public void Crouch(InputAction.CallbackContext context)
     {
-        if (context.started){crouching = true;}
-        else if (context.canceled){crouching = false;}
+        if (context.started) { crouching = true; }
+        else if (context.canceled) { crouching = false; }
     }
 
     //Detects if Shift is being held
     public void Sprint(InputAction.CallbackContext context)
     {
-        if(context.started){sprinting = true;}
-        else if(context.canceled){sprinting = false;}
-    }
-
-    public void ToggleFire(InputAction.CallbackContext context)
-    {
-       
-        if (context.performed) 
-        { 
-            grappleActive = !grappleActive;
-            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive);
-
-            source.PlayOneShot(grappleshoot);
-        }
+        if (context.started) { sprinting = true; }
+        else if (context.canceled) { sprinting = false; }
     }
 
     public void Scroll(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if (context.performed)
         {
             scrollPosition += ((context.ReadValue<Vector2>().y) / 120);
-            launchScroll = (int)(Math.Abs(scrollPosition%MaxLaunchCatchRunes));
+            launchScroll = (int)(Math.Abs(scrollPosition % MaxLaunchCatchRunes));
 
             LaunchIndicatorCheck(launchScroll);
-            
-            if(LCRuneSets[launchScroll] != null)
+
+            if (LCRuneSets[launchScroll] != null)
             {
                 LaunchCatchTemp[0] = LCRuneSets[launchScroll];
                 LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
@@ -289,7 +275,7 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[0] = null;
                 LaunchCatchTemp[1] = null;
             }
-            
+
         }
     }
 
@@ -340,16 +326,16 @@ public class thirdSoul : MonoBehaviour
         }
 
         // move the player horizontal and vertical
-        if (controller.enabled) {controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
+        if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime)); }
         //if (controller.enabled) { controller.SimpleMove(inputDirection.normalized * (speed * Time.deltaTime));}
-        else if (!controller.enabled) { rigidBody.AddForce(Vector3.ClampMagnitude(inputDirection.normalized * (speed * Time.deltaTime * AirStrafeSpeed), AirStrafeClamp));}
+        else if (!controller.enabled) { rigidBody.AddForce(Vector3.ClampMagnitude(inputDirection.normalized * (speed * Time.deltaTime * AirStrafeSpeed), AirStrafeClamp)); }
     }
 
     //When Space is pressed the player switches to RigidBody and is Forced though the air 
     //This disables the ground check until space is released
     public void Jump(InputAction.CallbackContext context)
     {
-        
+
         if (context.performed && Grounded)
         {
             jumping = true;
@@ -362,7 +348,7 @@ public class thirdSoul : MonoBehaviour
             source.PlayOneShot(bounce);
 
         }
-        else if(context.canceled)
+        else if (context.canceled)
         {
             jumping = false;
             GroundRadius = groundRadiusStored;
@@ -392,29 +378,27 @@ public class thirdSoul : MonoBehaviour
         {
             Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
-            if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 BounceRunes.Add(Instantiate(bounceRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)));
-                BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform); 
+                BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform);
             }
-            else if (type == "launch" && LaunchCatchStorage[0] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            else if (type == "launch" && LaunchCatchStorage[0] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
-                launchPlaced = true;
                 if (LaunchCatchStorage[1] != null)
                 {
                     LCRuneSets[launchScroll] = LaunchCatchStorage[0];
                     LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
-                    Array.Clear(LaunchCatchStorage,0,2);
+                    Array.Clear(LaunchCatchStorage, 0, 2);
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
             }
-            else if (type == "catch" && LaunchCatchStorage[1] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            else if (type == "catch" && LaunchCatchStorage[1] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
-                launchPlaced = false;
                 if (LaunchCatchStorage[0] != null)
                 {
                     LCRuneSets[launchScroll] = LaunchCatchStorage[0];
@@ -424,7 +408,7 @@ public class thirdSoul : MonoBehaviour
                 }
 
                 source.PlayOneShot(catchCast);
-                
+
             }
             else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
 
@@ -432,59 +416,7 @@ public class thirdSoul : MonoBehaviour
         }
         else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
-    
-    /*
-    //Checks the surface being aimed at and instanciates a rune on it if valid
-    private void spawn_Rune(string type)
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
-        {
-            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
-            runeTimer = 0;
-            if (type == "bounce" && grappleActive && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
-            {
-                BounceRunes.Add(Instantiate(bounceRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)));
-                BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform); 
-            }
-            else if (type == "launch" && grappleActive == false && LaunchCatchStorage[0] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
-            {
-                LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
-                if (LaunchCatchStorage[1] != null)
-                {
-                    LCRuneSets[launchScroll] = LaunchCatchStorage[0];
-                    LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
-                    Array.Clear(LaunchCatchStorage,0,2);
-                    LaunchIconsPlaced[launchScroll].SetActive(true);
-                }
-            }
-            else if (type == "catch" && grappleActive == false && LaunchCatchStorage[1] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
-            {
-                LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
-                LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
-                if (LaunchCatchStorage[0] != null)
-                {
-                    LCRuneSets[launchScroll] = LaunchCatchStorage[0];
-                    LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
-                    Array.Clear(LaunchCatchStorage, 0, 2);
-                    LaunchIconsPlaced[launchScroll].SetActive(true);
-                }
 
-                source.PlayOneShot(catchCast);
-                
-            }
-            else if (!(RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
-            {
-                source.PlayOneShot(incorrectcast);
-            }
-
-
-        }
-    }
-    */
-
-    
     private void move_Rune(string type)
     {
         RaycastHit hit;
@@ -493,7 +425,7 @@ public class thirdSoul : MonoBehaviour
             Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
-            { 
+            {
                 BounceRunes[0].gameObject.transform.position = hit.point;
                 BounceRunes[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 GameObject placedRune = BounceRunes[0];
@@ -501,21 +433,19 @@ public class thirdSoul : MonoBehaviour
                 BounceRunes.Add(placedRune);
                 placedRune.GetComponent<runeBehavior>().StickTo(hit.transform);
             }
-            else if(type == "launch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
+            else if (type == "launch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchTemp[0].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
 
-                launchPlaced = true;
             }
-            else if(type == "catch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
+            else if (type == "catch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
                 LaunchCatchTemp[1].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
 
-                launchPlaced = false;
 
                 source.PlayOneShot(catchCast);
             }
@@ -528,85 +458,50 @@ public class thirdSoul : MonoBehaviour
     public void Primary(InputAction.CallbackContext context)
     {
 
-        
-        if (!launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); launchPlaced = true; }
-        else if (!launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
+
+        if (context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); }
+        else if (context.performed && LCRuneSets[launchScroll] != null)
         {
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("launch");
         }
-        else if (launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch"); launchPlaced = false; }
-        else if (launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
-        {
-            LaunchCatchTemp[0] = LCRuneSets[launchScroll];
-            LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
-            move_Rune("catch");
-        }
         source.PlayOneShot(runeCast);
-        
-        if(context.canceled)
-        {
-            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
-        }
-
-    }
-
-    public void Secondary(InputAction.CallbackContext context)
-    {
-        
-        if (!grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
-        else if (!grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
 
         if (context.canceled)
         {
             GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
     }
-    
-    /*
-    //if primary is clicked then a bounceRune will be spawned
-    public void Primary(InputAction.CallbackContext context)
-    {
-
-        if (grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
-        else if (grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
-        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); }
-        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] != null)
-        {
-            LaunchCatchTemp[0] = LCRuneSets[launchScroll];
-            LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
-            move_Rune("launch");
-        }
-        source.PlayOneShot(runeCast);
-        
-
-    }
 
     public void Secondary(InputAction.CallbackContext context)
     {
-        if(!grappleActive && context.performed && LCRuneSets[launchScroll] == null) {spawn_Rune("catch"); }
-        else if(!grappleActive && context.performed && LCRuneSets[launchScroll] != null)
+        if (context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch"); }
+        else if (context.performed && LCRuneSets[launchScroll] != null)
         {
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
-            move_Rune("catch"); 
+            move_Rune("catch");
+        }
+        source.PlayOneShot(runeCast);
+
+        if (context.canceled)
+        {
+            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
     }
-    */
-
 
     public void Update()
     {
         if (pausemenu.paused)
             return;
 
-        
+
     }
 
     void LaunchIndicatorCheck(float active)
     {
-        
+
         LaunchIconActive[0].SetActive(0 == active && 1 <= MaxLaunchCatchRunes);
         LaunchIconActive[1].SetActive(1 == active && 2 <= MaxLaunchCatchRunes);
         LaunchIconActive[2].SetActive(2 == active && 3 <= MaxLaunchCatchRunes);
@@ -617,8 +512,8 @@ public class thirdSoul : MonoBehaviour
         LaunchIconActive[7].SetActive(7 == active && 8 <= MaxLaunchCatchRunes);
         LaunchIconActive[8].SetActive(8 == active && 9 <= MaxLaunchCatchRunes);
         LaunchIconActive[9].SetActive(9 == active && 10 <= MaxLaunchCatchRunes);
-        
-        
+
+
         LaunchIconsPlacedBG[0].SetActive(1 <= MaxLaunchCatchRunes);
         LaunchIconsPlacedBG[1].SetActive(2 <= MaxLaunchCatchRunes);
         LaunchIconsPlacedBG[2].SetActive(3 <= MaxLaunchCatchRunes);
@@ -629,10 +524,10 @@ public class thirdSoul : MonoBehaviour
         LaunchIconsPlacedBG[7].SetActive(8 <= MaxLaunchCatchRunes);
         LaunchIconsPlacedBG[8].SetActive(9 <= MaxLaunchCatchRunes);
         LaunchIconsPlacedBG[9].SetActive(10 <= MaxLaunchCatchRunes);
-        
-        
+
+
         LaunchIconsPlaced[0].SetActive(1 <= MaxLaunchCatchRunes && LCRuneSets[0] != null);
-        
+
         LaunchIconsPlaced[1].SetActive(2 <= MaxLaunchCatchRunes && LCRuneSets[1] != null);
         LaunchIconsPlaced[2].SetActive(3 <= MaxLaunchCatchRunes && LCRuneSets[2] != null);
         LaunchIconsPlaced[3].SetActive(4 <= MaxLaunchCatchRunes && LCRuneSets[3] != null);
@@ -642,7 +537,7 @@ public class thirdSoul : MonoBehaviour
         LaunchIconsPlaced[7].SetActive(8 <= MaxLaunchCatchRunes && LCRuneSets[7] != null);
         LaunchIconsPlaced[8].SetActive(9 <= MaxLaunchCatchRunes && LCRuneSets[8] != null);
         LaunchIconsPlaced[9].SetActive(10 <= MaxLaunchCatchRunes && LCRuneSets[9] != null);
-        
+
     }
 
     public void LaunchStart()
