@@ -19,7 +19,6 @@ public class thirdSoul : MonoBehaviour
     public AudioClip incorrectcast;
     public AudioClip grappleshoot;
     public AudioClip bounce;
-    public ChangeSceneButton mousey;
 
 
     [Header("Ground Detections")]
@@ -90,6 +89,7 @@ public class thirdSoul : MonoBehaviour
     float runeTimer;
     float scrollPosition;
     int launchScroll;
+    bool launchPlaced;
 
     [Space(10)]
     [Header("Runes")]
@@ -113,11 +113,12 @@ public class thirdSoul : MonoBehaviour
     public GameObject[] LaunchIconActive;
     public GameObject[] LaunchIconsPlaced;
     public GameObject[] LaunchIconsPlacedBG;
-    public Slider mousesense;
 
 
     [Space(10)]
     [Header("Grapple")]
+    [Tooltip("If active [Secondary] will use grappling instead of Launch/Catch Runes")]
+    public bool grappleActive;
     [Tooltip("Grappleing hook object")]
     public GameObject grapplingGun;
     float reduction;
@@ -154,9 +155,6 @@ public class thirdSoul : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         LaunchIndicatorCheck(0);
-        
-
-        mousey = GameObject.Find("SceneManager").GetComponent<ChangeSceneButton>();
     }
 
     private void FixedUpdate()
@@ -233,7 +231,6 @@ public class thirdSoul : MonoBehaviour
     public void GrapplePhysicsEnd()
     {
         rigidBody.useGravity = true;
-        Debug.Log("End");
     }
 
     //Debugging position setter
@@ -259,6 +256,18 @@ public class thirdSoul : MonoBehaviour
     {
         if(context.started){sprinting = true;}
         else if(context.canceled){sprinting = false;}
+    }
+
+    public void ToggleFire(InputAction.CallbackContext context)
+    {
+       
+        if (context.performed) 
+        { 
+            grappleActive = !grappleActive;
+            grapplingGun.GetComponent<GrapplingGun>().GrappleEnable(grappleActive);
+
+            source.PlayOneShot(grappleshoot);
+        }
     }
 
     public void Scroll(InputAction.CallbackContext context)
@@ -363,8 +372,7 @@ public class thirdSoul : MonoBehaviour
     //Rotates the player horizontally and the camera vertically in accordance with the mouse
     public void Look(InputAction.CallbackContext context)
     {
-        mousesense = mousey.mousey;
-        mouseSensitivity = mousey.valSlide;
+
         float mouseX = context.ReadValue<Vector2>().x * mouseSensitivity * Time.deltaTime;
         float mouseY = context.ReadValue<Vector2>().y * mouseSensitivity * Time.deltaTime;
 
@@ -373,9 +381,6 @@ public class thirdSoul : MonoBehaviour
 
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
-
-      
-
 
     }
 
@@ -396,6 +401,7 @@ public class thirdSoul : MonoBehaviour
             {
                 LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
+                launchPlaced = true;
                 if (LaunchCatchStorage[1] != null)
                 {
                     LCRuneSets[launchScroll] = LaunchCatchStorage[0];
@@ -408,6 +414,7 @@ public class thirdSoul : MonoBehaviour
             {
                 LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
                 LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
+                launchPlaced = false;
                 if (LaunchCatchStorage[0] != null)
                 {
                     LCRuneSets[launchScroll] = LaunchCatchStorage[0];
@@ -425,6 +432,58 @@ public class thirdSoul : MonoBehaviour
         }
         else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
+    
+    /*
+    //Checks the surface being aimed at and instanciates a rune on it if valid
+    private void spawn_Rune(string type)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange) && RuneRefresh <= runeTimer)
+        {
+            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            runeTimer = 0;
+            if (type == "bounce" && grappleActive && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            {
+                BounceRunes.Add(Instantiate(bounceRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal)));
+                BounceRunes[BounceRunes.Count - 1].GetComponent<runeBehavior>().StickTo(hit.transform); 
+            }
+            else if (type == "launch" && grappleActive == false && LaunchCatchStorage[0] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            {
+                LaunchCatchStorage[0] = Instantiate(launchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                LaunchCatchStorage[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
+                if (LaunchCatchStorage[1] != null)
+                {
+                    LCRuneSets[launchScroll] = LaunchCatchStorage[0];
+                    LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
+                    Array.Clear(LaunchCatchStorage,0,2);
+                    LaunchIconsPlaced[launchScroll].SetActive(true);
+                }
+            }
+            else if (type == "catch" && grappleActive == false && LaunchCatchStorage[1] == null && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0) 
+            {
+                LaunchCatchStorage[1] = Instantiate(catchRunePrefab, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                LaunchCatchStorage[1].GetComponent<runeBehavior>().StickTo(hit.transform);
+                if (LaunchCatchStorage[0] != null)
+                {
+                    LCRuneSets[launchScroll] = LaunchCatchStorage[0];
+                    LaunchCatchStorage[0].GetComponent<LaunchBehavior>().NewCatch(LaunchCatchStorage[1]);
+                    Array.Clear(LaunchCatchStorage, 0, 2);
+                    LaunchIconsPlaced[launchScroll].SetActive(true);
+                }
+
+                source.PlayOneShot(catchCast);
+                
+            }
+            else if (!(RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
+            {
+                source.PlayOneShot(incorrectcast);
+            }
+
+
+        }
+    }
+    */
+
     
     private void move_Rune(string type)
     {
@@ -448,6 +507,7 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[0].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[0].GetComponent<LaunchBehavior>().StickTo(hit.transform);
 
+                launchPlaced = true;
             }
             else if(type == "catch" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
@@ -455,6 +515,7 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
 
+                launchPlaced = false;
 
                 source.PlayOneShot(catchCast);
             }
@@ -468,37 +529,72 @@ public class thirdSoul : MonoBehaviour
     {
 
         
-        if (context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch");}
-        else if (context.performed && LCRuneSets[launchScroll] != null)
+        if (!launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); launchPlaced = true; }
+        else if (!launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
         {
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("launch");
         }
-        source.PlayOneShot(runeCast);
-
-        if (context.canceled)
-        {
-            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
-        }
-    }
-
-    public void Secondary(InputAction.CallbackContext context)
-    {
-        if (context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch");}
-        else if (context.performed && LCRuneSets[launchScroll] != null)
+        else if (launchPlaced && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch"); launchPlaced = false; }
+        else if (launchPlaced && context.performed && LCRuneSets[launchScroll] != null)
         {
             LaunchCatchTemp[0] = LCRuneSets[launchScroll];
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch");
         }
         source.PlayOneShot(runeCast);
+        
+        if(context.canceled)
+        {
+            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+        }
+
+    }
+
+    public void Secondary(InputAction.CallbackContext context)
+    {
+        
+        if (!grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
+        else if (!grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
 
         if (context.canceled)
         {
             GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
         }
     }
+    
+    /*
+    //if primary is clicked then a bounceRune will be spawned
+    public void Primary(InputAction.CallbackContext context)
+    {
+
+        if (grappleActive && context.performed && BounceRunes.Count < MaxBounceRunes) { spawn_Rune("bounce"); }
+        else if (grappleActive && context.performed && BounceRunes.Count >= MaxBounceRunes) { move_Rune("bounce"); }
+        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("launch"); }
+        else if (!grappleActive && context.performed && LCRuneSets[launchScroll] != null)
+        {
+            LaunchCatchTemp[0] = LCRuneSets[launchScroll];
+            LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
+            move_Rune("launch");
+        }
+        source.PlayOneShot(runeCast);
+        
+
+    }
+
+    public void Secondary(InputAction.CallbackContext context)
+    {
+        if(!grappleActive && context.performed && LCRuneSets[launchScroll] == null) {spawn_Rune("catch"); }
+        else if(!grappleActive && context.performed && LCRuneSets[launchScroll] != null)
+        {
+            LaunchCatchTemp[0] = LCRuneSets[launchScroll];
+            LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
+            move_Rune("catch"); 
+        }
+    }
+    */
+
 
     public void Update()
     {
