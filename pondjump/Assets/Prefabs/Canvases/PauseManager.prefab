@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8e45e836143264585ef97161493d9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseCanvas1: {fileID: 7872561412695822219, guid: 2a6fc6e7bdf56430c8d7ad4e0d94d363, type: 3}
-  AudioManager: {fileID: 5863104647205776649, guid: f96475a8824db5849a9163df54b26902, type: 3}
+  PauseCanvas1: {fileID: 0}
+  AudioManager: {fileID: 0}
