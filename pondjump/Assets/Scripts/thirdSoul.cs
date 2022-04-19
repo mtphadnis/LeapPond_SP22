@@ -89,6 +89,7 @@ public class thirdSoul : MonoBehaviour
     float runeTimer;
     float scrollPosition;
     int launchScroll;
+    GameObject crosshairBase, crosshairTop;
 
     [Space(10)]
     [Header("Runes")]
@@ -136,6 +137,8 @@ public class thirdSoul : MonoBehaviour
         {
             mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         }
+
+        crosshairBase = GameObject.Find("CrossHairBase");
     }
 
 
@@ -152,6 +155,7 @@ public class thirdSoul : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         LaunchIndicatorCheck(0);
+        LaunchBandage();
     }
 
     private void FixedUpdate()
@@ -184,6 +188,20 @@ public class thirdSoul : MonoBehaviour
         controller.enabled = state;
         rigidBody.isKinematic = state;
     }
+
+    //Method that runs on start to help with bug that causes player to do a limp launch as their first
+    //this is a bandage for a bug since alex can't find the cause
+    void LaunchBandage()
+    {
+        jumping = true;
+        Grounded = false;
+        offGroundTimer = offGroundTimerEnd;
+        SoulSwitch(false);
+        GroundRadius = 0;
+
+        rigidBody.AddForce(new Vector3(controller.velocity.x, JumpHeight / 5, controller.velocity.z), ForceMode.Impulse);
+    }
+
 
     //Creates a Sphere at the bottom of the player that detects collisions and the layers collided with
     //It then delays the reaction to this collision
@@ -228,7 +246,6 @@ public class thirdSoul : MonoBehaviour
     public void GrapplePhysicsEnd()
     {
         rigidBody.useGravity = true;
-        Debug.Log("End");
     }
 
     //Debugging position setter
@@ -376,7 +393,7 @@ public class thirdSoul : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~playerLayer) && RuneRefresh <= runeTimer)
         {
-            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
@@ -407,14 +424,15 @@ public class thirdSoul : MonoBehaviour
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
 
-                source.PlayOneShot(catchCast);
+                //source.PlayOneShot(catchCast);
 
             }
-            else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+            else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+            
 
 
         }
-        else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+        else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
 
     private void move_Rune(string type)
@@ -422,7 +440,7 @@ public class thirdSoul : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(mainCamera.GetComponent<Camera>().transform.position, mainCamera.GetComponent<Camera>().transform.rotation * Vector3.forward, out hit, RuneRange, ~playerLayer) && RuneRefresh <= runeTimer)
         {
-            Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
+            //Debug.Log("Object: " + hit.transform.name + " Layer: " + hit.transform.gameObject.layer + " Runeable?: " + (hit.transform.gameObject.layer == RuneAble) + " Runeable: " + RuneAble);
             runeTimer = 0;
             if (type == "bounce" && (RuneAble & (1 << hit.transform.gameObject.layer)) != 0)
             {
@@ -447,11 +465,11 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
 
 
-                source.PlayOneShot(catchCast);
+                //source.PlayOneShot(catchCast);
             }
-            else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+            else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
         }
-        else { GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+        else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
     }
 
     //if primary is clicked then a bounceRune will be spawned
@@ -466,16 +484,19 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("launch");
         }
-        source.PlayOneShot(runeCast);
+        //source.PlayOneShot(runeCast);
+
 
         if (context.canceled)
         {
-            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+            crosshairBase.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+            
         }
     }
 
     public void Secondary(InputAction.CallbackContext context)
     {
+
         if (context.performed && LCRuneSets[launchScroll] == null) { spawn_Rune("catch"); }
         else if (context.performed && LCRuneSets[launchScroll] != null)
         {
@@ -483,11 +504,13 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch");
         }
-        source.PlayOneShot(runeCast);
+        //source.PlayOneShot(runeCast);
+
 
         if (context.canceled)
         {
-            GameObject.Find("CrossHairBase").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+            crosshairBase.GetComponent<Image>().color = new Color32(0, 0, 0, 255);
+
         }
     }
 
