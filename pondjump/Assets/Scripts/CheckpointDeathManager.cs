@@ -35,14 +35,14 @@ public class CheckpointDeathManager : MonoBehaviour
     {
         Damage = 0;
 
+        /*
         Debug.Log("Scene Count: " + SceneManager.sceneCount);
         Debug.Log("Scene Build Count: " + SceneManager.sceneCountInBuildSettings);
         for(int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
         {
             Debug.Log("Scene " + i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
         }
-        //DeathMenu = SceneManager.GetSceneByName("Death Menu");
-        //HealthUI = GameObject.Find("HealthUI").GetComponent<Image>();
+        */
 
         Checkpoint = transform.position;
     }

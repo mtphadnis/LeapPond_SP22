@@ -11,6 +11,7 @@ public class pausemenu : MonoBehaviour
     public static bool paused = false;
     public GameObject PauseCanvas1;
     public GameObject AudioManager;
+    public GameObject AimCanvas;
     FirstPersonControls action;
 
     private void Awake()
@@ -53,6 +54,7 @@ public class pausemenu : MonoBehaviour
         AudioListener.pause = true;
         AudioManager.SetActive(false);
         paused = true;
+        AimCanvas.SetActive(false);
         PauseCanvas1.SetActive(true);
         Cursor.lockState = CursorLockMode.None; 
         
@@ -68,6 +70,7 @@ public class pausemenu : MonoBehaviour
         AudioManager.SetActive(true);
         paused = false;
         PauseCanvas1.SetActive(false);
+        AimCanvas.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
     }
 

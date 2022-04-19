@@ -77,9 +77,7 @@ public class LaunchBehavior : MonoBehaviour
 
                 other.GetComponent<Rigidbody>().AddForce(Vector3.Scale(difference + TargetHeight, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
 
-                
-
-                //Debug.Log("Difference: " + difference + " Distance: " + Vector3.Magnitude(difference) + " Multiplier: " + ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3) + " Launch: " + Vector3.Scale(difference, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
+                Debug.Log("Difference: " + difference + " Distance: " + Vector3.Magnitude(difference) + " Multiplier: " + ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3) + " Launch: " + Vector3.Scale(difference, VelocityMultiplier) * ((VelocityNumeratorConstant / (Vector3.Magnitude(difference) + 20)) + 3));
             }
             else if(other.tag != "Platform")
             {
