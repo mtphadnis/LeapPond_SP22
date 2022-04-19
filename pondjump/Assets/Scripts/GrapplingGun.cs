@@ -15,7 +15,7 @@ public class GrapplingGun : MonoBehaviour
 
     private LineRenderer lr;
     private Vector3 grapplePoint;
-    public LayerMask whatIsGrappleable;
+    public LayerMask whatIsGrappleable, notIgnored;
     public Transform gunTip, camera, player;
     public float maxDistance;
     private SpringJoint joint;
@@ -39,7 +39,6 @@ public class GrapplingGun : MonoBehaviour
         }
         else if (context.canceled)
         {
-            Debug.Log("Cancelled");
             GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
             StopGrapple();
         }
@@ -76,7 +75,7 @@ public class GrapplingGun : MonoBehaviour
         RaycastHit sphere, line;
         bool lineHit = false;
 
-        if (Physics.Raycast(camera.position, camera.forward, out line, maxDistance))
+        if (Physics.Raycast(camera.position, camera.forward, out line, maxDistance, notIgnored))
         {
 
             if((whatIsGrappleable & (1 << line.transform.gameObject.layer)) != 0)
@@ -112,7 +111,7 @@ public class GrapplingGun : MonoBehaviour
             }
         }
         
-        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out sphere, maxDistance) && !lineHit)
+        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out sphere, maxDistance, notIgnored) && !lineHit)
         {
             if((whatIsGrappleable & (1 << sphere.transform.gameObject.layer)) != 0)
             {

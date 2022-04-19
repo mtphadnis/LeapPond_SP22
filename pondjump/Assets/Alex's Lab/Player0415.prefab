@@ -4372,6 +4372,9 @@ MonoBehaviour:
   whatIsGrappleable:
     serializedVersion: 2
     m_Bits: 2304
+  notIgnored:
+    serializedVersion: 2
+    m_Bits: 16223
   gunTip: {fileID: 9059700061137911561}
   camera: {fileID: 9059700062590183804}
   player: {fileID: 9059700062405096544}
