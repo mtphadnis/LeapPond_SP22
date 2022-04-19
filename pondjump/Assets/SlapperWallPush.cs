@@ -31,13 +31,11 @@ public class SlapperWallPush : MonoBehaviour
         if (inContact && painGrab && caught)
         {
             player.transform.position = transform.position + contactPoint;
-            Debug.Log("player.transform.position: " + player.transform.position + ", transform.position: " + transform.position + ", contactPoint" + contactPoint);
             player.GetComponent<CheckpointDeathManager>().Damage += 0.1f;
         }
         else if (inContact && caught)
         {
             player.transform.position = transform.position + contactPoint;
-            Debug.Log("player.transform.position: " + player.transform.position + ", transform.position: " + transform.position + ", contactPoint" + contactPoint);
         }
 
         if (player.GetComponent<CheckpointDeathManager>().Damage >= 1 || !caught)
