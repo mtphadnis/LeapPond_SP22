@@ -78,8 +78,6 @@ public class ChangeSceneButton : MonoBehaviour
 
 
 	public int change;
-	public AudioSource playselect;
-	public AudioClip scrollbeep;
-	public AudioClip selectbeep;
+	
 
 }
