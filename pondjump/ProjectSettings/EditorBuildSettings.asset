@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu Scenes/MainMenu/main menu.unity
+    path: Assets/Scenes/Menu Scenes/MainMenu/main menu-real.unity
     guid: 2af1c9860fc5d7047903795ca4d2e023
   - enabled: 1
     path: Assets/Alex's Lab/AlexWell PT01.unity

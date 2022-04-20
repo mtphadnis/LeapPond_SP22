@@ -18,7 +18,7 @@ public class ChangeSceneButton : MonoBehaviour
 			Debug.Log("Scene " + i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
 		}
 		
-		mousey.onValueChanged.AddListener(delegate { ChangeSlideValue(); });
+		//mousey.onValueChanged.AddListener(delegate { ChangeSlideValue(); });
 	}
 
     private void ChangeSlideValue()
@@ -26,18 +26,9 @@ public class ChangeSceneButton : MonoBehaviour
 		valSlide = mousey.value;
 	}
 
-    public void PlaySound()
-	{
-		playselect.PlayOneShot(selectbeep);
-	}
-
-	public void GoBackSound()
-    {
-		playselect.PlayOneShot(scrollbeep);
-	}
+  
 	public void LoadScene(int sceneName)
 	{
-		playselect.PlayOneShot(selectbeep);
 		change = sceneName;
 		Invoke("ChangeScene", 2f);
 		Debug.Log(change);
@@ -62,8 +53,6 @@ public class ChangeSceneButton : MonoBehaviour
 
 
 	public int change;
-	public AudioSource playselect;
-	public AudioClip scrollbeep;
-	public AudioClip selectbeep;
+	
 
 }
