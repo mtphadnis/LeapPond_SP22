@@ -2,6 +2,8 @@ using UnityEngine.Audio;
 using System;
 using UnityEngine;
 
+
+//do not change. you do not have to set up anything in the inspector anymore. 
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;

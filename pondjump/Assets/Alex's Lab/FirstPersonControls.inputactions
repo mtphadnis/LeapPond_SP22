@@ -246,7 +246,7 @@
                 {
                     "name": "",
                     "id": "39833ed9-65bd-48eb-8b26-8790ff743fea",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -279,7 +279,7 @@
                 {
                     "name": "",
                     "id": "d8a4c8a5-dc6c-489d-bddc-f894d6061df0",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

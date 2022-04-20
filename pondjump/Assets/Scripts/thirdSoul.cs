@@ -13,7 +13,12 @@ public class thirdSoul : MonoBehaviour
     private Rigidbody rigidBody;
     private GameObject mainCamera;
     private runeBehavior runeBehavior;
-    
+    public AudioClip runeCast;
+    public AudioSource source;
+    public AudioClip catchCast;
+    public AudioClip incorrectcast;
+    public AudioClip grappleshoot;
+    public AudioClip bounce;
 
 
     [Header("Ground Detections")]
@@ -357,7 +362,7 @@ public class thirdSoul : MonoBehaviour
             GroundRadius = 0;
 
             rigidBody.AddForce(new Vector3(controller.velocity.x, JumpHeight, controller.velocity.z), ForceMode.Impulse);
-           
+            source.PlayOneShot(bounce);
 
         }
         else if (context.canceled)
@@ -419,7 +424,7 @@ public class thirdSoul : MonoBehaviour
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
 
-               
+                //source.PlayOneShot(catchCast);
 
             }
             else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
@@ -460,7 +465,7 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
 
 
-                
+                //source.PlayOneShot(catchCast);
             }
             else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
         }
@@ -479,7 +484,8 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("launch");
         }
-        
+        //source.PlayOneShot(runeCast);
+
 
         if (context.canceled)
         {
@@ -498,6 +504,7 @@ public class thirdSoul : MonoBehaviour
             LaunchCatchTemp[1] = LCRuneSets[launchScroll].GetComponent<LaunchBehavior>().GetCatch();
             move_Rune("catch");
         }
+        //source.PlayOneShot(runeCast);
 
 
         if (context.canceled)

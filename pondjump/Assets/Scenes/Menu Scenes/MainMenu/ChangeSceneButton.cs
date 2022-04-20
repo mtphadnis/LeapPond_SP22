@@ -9,8 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneButton : MonoBehaviour
 {
-	public Slider mousey;
-	public float valSlide;
+	
     private void Start()
     {
 		for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -18,17 +17,43 @@ public class ChangeSceneButton : MonoBehaviour
 			Debug.Log("Scene " + i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
 		}
 		
-		//mousey.onValueChanged.AddListener(delegate { ChangeSlideValue(); });
+		
 	}
 
-    private void ChangeSlideValue()
+   
+
+    public void OnPlaySound()
+	{
+		FindObjectOfType<AudioManager>().Play("PlayMM");
+	}
+
+	public void PressButton()
     {
-		valSlide = mousey.value;
+		FindObjectOfType<AudioManager>().Play("ButtonPressGeneral");
 	}
 
-  
+	public void GoBack()
+    {
+		FindObjectOfType<AudioManager>().Play("LillyClick");
+    }
+
+	public void HSMenu()
+    {
+		
+		
+			FindObjectOfType<AudioManager>().Play("HSClick");
+	
+	}
+
+	public void Quit()
+	{
+		FindObjectOfType<AudioManager>().Play("Quit");
+	}
+
+
 	public void LoadScene(int sceneName)
 	{
+		
 		change = sceneName;
 		Invoke("ChangeScene", 2f);
 		Debug.Log(change);
@@ -53,6 +78,8 @@ public class ChangeSceneButton : MonoBehaviour
 
 
 	public int change;
-	
+	public AudioSource playselect;
+	public AudioClip scrollbeep;
+	public AudioClip selectbeep;
 
 }

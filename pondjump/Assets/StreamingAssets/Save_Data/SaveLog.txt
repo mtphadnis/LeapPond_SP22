@@ -5,3 +5,4 @@ userName3[Pink Cheese]points3[2]end3
 userName4[sirHolderofPlaces]points4[0]end4
 userName5[Placeholder Name]points5[1]end5
 userName6[Placeholder Name]points6[0]end6
+userName7[sirHolderofPlaces]points7[5]end7
