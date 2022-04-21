@@ -223,7 +223,7 @@ Material:
     - _DepthColor: {r: 0.010386683, g: 0.0754717, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowTiling: {r: 1, g: 1, b: 0, a: 0}
-    - _FoamColor: {r: 0.27926892, g: 0.9056604, b: 0.21787111, a: 1}
+    - _FoamColor: {r: 0.8867924, g: 0, b: 0.30224195, a: 1}
     - _FoamTiling: {r: 1, g: 1, b: 1, a: 1}
     - _GerstnerWaveA: {r: 0.84712195, g: -0.53139853, b: 3.02, a: 6.55}
     - _GerstnerWaveB: {r: 0.41945216, g: -0.9077774, b: 3.17, a: 8.9}
@@ -235,8 +235,8 @@ Material:
     - _NormalMapBTilings: {r: 1, g: 1, b: 1, a: 1}
     - _NormalMapFarSpeeds: {r: 1, g: 1, b: 1, a: 1}
     - _NormalMapFarTilings: {r: 1, g: 1, b: 0.5, a: 0.5}
-    - _RefractionKey1: {r: 0.4854483, g: 0.8962264, b: 0.29169634, a: 0}
-    - _RefractionKey2: {r: 0.4921308, g: 0.8975741, b: 0.3008951, a: 0.6644999}
+    - _RefractionKey1: {r: 0.49358052, g: 0, b: 0.7830189, a: 0}
+    - _RefractionKey2: {r: 0.8980392, g: 0.30196083, b: 0.655371, a: 0.6644999}
     - _RefractionKey3: {r: 1, g: 1, b: 1, a: 1}
     - _RefractionKey4: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey5: {r: -1, g: -1, b: -1, a: -1}
@@ -244,7 +244,7 @@ Material:
     - _RefractionKey7: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey8: {r: -1, g: -1, b: -1, a: -1}
     - _ScatteringColor: {r: 0.46342114, g: 0.7735849, b: 0.6808729, a: 1}
-    - _SpecColor: {r: 0.46327662, g: 0.9811321, b: 0.24528302, a: 1}
+    - _SpecColor: {r: 0.9811321, g: 0.013883919, b: 0.18917376, a: 1}
     - _UnderWaterColor: {r: 0.21226415, g: 0.46418187, b: 0.8490566, a: 0.1764706}
   m_BuildTextureStacks: []
 --- !u!114 &3734885289509101253
