@@ -22,7 +22,6 @@ public class LaunchBehavior : MonoBehaviour
 
     private void Start()
     {
-
         Player = GameObject.FindGameObjectWithTag("Player");
         _LaunchStrength = Player.GetComponent<thirdSoul>().LaunchStrength;
         
