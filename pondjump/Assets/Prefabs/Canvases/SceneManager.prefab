@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2824593997610551502}
   - component: {fileID: 383633129378591399}
   m_Layer: 0
-  m_Name: SceneManager 1
+  m_Name: SceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   change: 0
+  playselect: {fileID: 2824593997610551502}
+  scrollbeep: {fileID: 8300000, guid: 4d956aebed8d24757868bed47c71c612, type: 3}
+  selectbeep: {fileID: 8300000, guid: c79a7967e40234cf98784d49c1f2785c, type: 3}
 --- !u!114 &2824593997610551503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,11 +167,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2824593997610551498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d2069f3c3115504d928210589f90b69, type: 3}
+  m_Script: {fileID: 11500000, guid: 84caf11cdb34d214194ec28cebab19ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: {fileID: 0}
-  inputArea: {fileID: 0}
-  scoreboardTxt: {fileID: 0}
+  curUn: 
+  curPt: 0
+  uCount: 0
   uN_list: []
-  sA_list: 
+  pT_list: 
+  userName: {fileID: 0}
+  totalScore: {fileID: 0}
