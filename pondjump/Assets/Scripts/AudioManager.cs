@@ -7,7 +7,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
-    
+    public AudioSource playSound;
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -31,5 +31,10 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
 
 
+    }
+
+   void OnTriggerEnter(Collider other)
+    {
+        playSound.Play();
     }
 }

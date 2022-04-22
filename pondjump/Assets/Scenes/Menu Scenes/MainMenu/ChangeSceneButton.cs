@@ -9,49 +9,47 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneButton : MonoBehaviour
 {
-	AudioManager audioManager;
-
+	
     private void Start()
     {
-		audioManager = FindObjectOfType<AudioManager>();
-		audioManager.Play("Theme1");
-
-		/*
 		for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
 		{
 			Debug.Log("Scene " + i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
 		}
-		*/
+
+		FindObjectOfType<AudioManager>().Play("Theme1");
+
+
 	}
 
    
 
     public void OnPlaySound()
 	{
-		audioManager.Play("PlayMM");
+		FindObjectOfType<AudioManager>().Play("PlayMM");
 	}
 
-	public void PressButtonSound()
+	public void PressButton()
     {
-		audioManager.Play("ButtonPressGeneral");
+		FindObjectOfType<AudioManager>().Play("ButtonPressGeneral");
 	}
 
-	public void GoBackSound()
+	public void GoBack()
     {
-		audioManager.Play("LillyClick");
+		FindObjectOfType<AudioManager>().Play("LillyClick");
     }
 
-	public void HSMenuSound()
+	public void HSMenu()
     {
-
-
-		audioManager.Play("HSClick");
+		
+		
+			FindObjectOfType<AudioManager>().Play("HSClick");
 	
 	}
 
-	public void QuitSound()
+	public void Quit()
 	{
-		audioManager.Play("Quit");
+		FindObjectOfType<AudioManager>().Play("Quit");
 	}
 
 

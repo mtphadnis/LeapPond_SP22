@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &117783733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -891,7 +891,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 895127068}
         m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
-        m_MethodName: PressButtonSound
+        m_MethodName: PressButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1365,7 +1365,7 @@ GameObject:
   - component: {fileID: 394924032}
   - component: {fileID: 394924031}
   m_Layer: 5
-  m_Name: Well Pt.1
+  m_Name: Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1454,7 +1454,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2997,7 +2997,7 @@ GameObject:
   - component: {fileID: 797909058}
   - component: {fileID: 797909057}
   m_Layer: 5
-  m_Name: The Mine
+  m_Name: The Well
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3074,7 +3074,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 2
           m_BoolArgument: 0
@@ -3238,7 +3238,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 895127068}
         m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
-        m_MethodName: HSMenuSound
+        m_MethodName: HSMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3527,7 +3527,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 895127068}
         m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
-        m_MethodName: QuitSound
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4427,7 +4427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -88.5, y: 45.3}
+  m_AnchoredPosition: {x: -88.5, y: 42.6}
   m_SizeDelta: {x: 117, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060901446
@@ -4639,7 +4639,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: -35}
+  m_AnchoredPosition: {x: 16, y: -42}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121073528
@@ -4697,7 +4697,7 @@ GameObject:
   - component: {fileID: 1124260904}
   - component: {fileID: 1124260903}
   m_Layer: 5
-  m_Name: Well Pt.2
+  m_Name: Well (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6137,7 +6137,7 @@ GameObject:
   - component: {fileID: 1573348019}
   - component: {fileID: 1573348018}
   m_Layer: 5
-  m_Name: The Basin
+  m_Name: The Mine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6214,9 +6214,9 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 4
+          m_StringArgument: 2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 895127068}
@@ -6378,7 +6378,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 895127068}
         m_TargetAssemblyTypeName: ChangeSceneButton, Assembly-CSharp
-        m_MethodName: PressButtonSound
+        m_MethodName: PressButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
