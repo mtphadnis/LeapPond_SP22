@@ -19,7 +19,7 @@ public class pausemenu : MonoBehaviour
         action = new FirstPersonControls();
 
         PauseCanvas = GameObject.Find("PauseMenu");
-        AudioManager = GameObject.Find("AudioManager");
+        AudioManager = GameObject.Find("AudioManager 1");
         AimCanvas = GameObject.Find("CrossHairBase");
     }
 

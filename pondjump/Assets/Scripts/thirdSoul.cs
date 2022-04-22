@@ -13,12 +13,6 @@ public class thirdSoul : MonoBehaviour
     private Rigidbody rigidBody;
     private GameObject mainCamera;
     private runeBehavior runeBehavior;
-    public AudioClip runeCast;
-    public AudioSource source;
-    public AudioClip catchCast;
-    public AudioClip incorrectcast;
-    public AudioClip grappleshoot;
-    public AudioClip bounce;
 
 
     [Header("Ground Detections")]
@@ -122,6 +116,8 @@ public class thirdSoul : MonoBehaviour
     float reduction;
 
 
+    AudioManager audioManager;
+
     public bool Pause;
 
     private void Awake()
@@ -144,6 +140,7 @@ public class thirdSoul : MonoBehaviour
 
     private void Start()
     {
+        audioManager = FindObjectOfType<AudioManager>();
         SoulSwitch(true);
         groundRadiusStored = GroundRadius;
 
@@ -362,7 +359,6 @@ public class thirdSoul : MonoBehaviour
             GroundRadius = 0;
 
             rigidBody.AddForce(new Vector3(controller.velocity.x, JumpHeight, controller.velocity.z), ForceMode.Impulse);
-            source.PlayOneShot(bounce);
 
         }
         else if (context.canceled)
@@ -424,15 +420,14 @@ public class thirdSoul : MonoBehaviour
                     LaunchIconsPlaced[launchScroll].SetActive(true);
                 }
 
-                //source.PlayOneShot(catchCast);
 
             }
-            else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+            else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); audioManager.Play("IncorrectPlace"); Debug.Log(audioManager.name); }
             
 
 
         }
-        else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+        else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); audioManager.Play("IncorrectPlace"); Debug.Log(audioManager.name); }
     }
 
     private void move_Rune(string type)
@@ -463,13 +458,10 @@ public class thirdSoul : MonoBehaviour
                 LaunchCatchTemp[1].gameObject.transform.position = hit.point;
                 LaunchCatchTemp[1].gameObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal);
                 LaunchCatchTemp[1].GetComponent<runeBehavior>().StickTo(hit.transform);
-
-
-                //source.PlayOneShot(catchCast);
             }
-            else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+            else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); audioManager.Play("IncorrectPlace"); Debug.Log(audioManager.name); }
         }
-        else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); }
+        else { crosshairBase.GetComponent<Image>().color = new Color32(255, 0, 0, 255); audioManager.Play("IncorrectPlace"); Debug.Log(audioManager.name); }
     }
 
     //if primary is clicked then a bounceRune will be spawned
