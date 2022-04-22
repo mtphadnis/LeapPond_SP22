@@ -4913,12 +4913,8 @@ MonoBehaviour:
   m_Mesh: {fileID: 825099279}
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges:
-  - a: 358
-    b: 356
-  - a: 373
-    b: 375
-  m_SelectedVertices: 66010000640100007501000077010000
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!1001 &57493752
 PrefabInstance:
   m_ObjectHideFlags: 0
