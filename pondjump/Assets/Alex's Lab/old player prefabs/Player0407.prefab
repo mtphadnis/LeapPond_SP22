@@ -6590,9 +6590,18 @@ MonoBehaviour:
   whatIsGrappleable:
     serializedVersion: 2
     m_Bits: 2304
+<<<<<<<< HEAD:pondjump/Assets/Alex's Lab/Player0407.prefab
   gunTip: {fileID: 5927180999880022946}
   camera: {fileID: 5927180999467929047}
   player: {fileID: 5927180999283953867}
+========
+  notIgnored:
+    serializedVersion: 2
+    m_Bits: 16223
+  gunTip: {fileID: 9059700061137911561}
+  camera: {fileID: 9059700062590183804}
+  player: {fileID: 9059700062405096544}
+>>>>>>>> alex-edits:pondjump/Assets/Alex's Lab/old player prefabs/Player0415.prefab
   maxDistance: 70
 --- !u!1 &5927181000588488014
 GameObject:
