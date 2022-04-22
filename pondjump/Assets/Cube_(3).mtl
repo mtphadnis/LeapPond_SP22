@@ -1,0 +1,5 @@
+newmtl conveyor
+map_Kd -o 0 -7.7 -s 1 6 prototype_512x512_grey2.png
+Kd 1 1 1
+d 1
+
