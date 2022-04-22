@@ -292,7 +292,7 @@ public class @FirstPersonControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d8a4c8a5-dc6c-489d-bddc-f894d6061df0"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

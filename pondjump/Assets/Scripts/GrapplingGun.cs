@@ -39,6 +39,7 @@ public class GrapplingGun : MonoBehaviour
         }
         else if (context.canceled)
         {
+            Debug.Log("Cancelled");
             GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(0, 0, 0, 255);
             StopGrapple();
         }
