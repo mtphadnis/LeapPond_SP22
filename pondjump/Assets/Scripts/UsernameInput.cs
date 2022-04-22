@@ -31,7 +31,7 @@ public class UsernameInput : MonoBehaviour
         {
             popup.SetActive(true);
             inputbox.SetActive(false);
-            popuptext.text = "Hello" + inputfield.text + ". Would you like to play?";
+            popuptext.text = "Hello " + inputfield.text + ". Would you like to play?";
         }
 
     }

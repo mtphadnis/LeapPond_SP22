@@ -16,8 +16,10 @@ public class ChangeSceneButton : MonoBehaviour
 		{
 			Debug.Log("Scene " + i + ": " + SceneManager.GetSceneByBuildIndex(i).name);
 		}
-		
-		
+
+		FindObjectOfType<AudioManager>().Play("Theme1");
+
+
 	}
 
    
