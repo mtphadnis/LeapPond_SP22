@@ -73,7 +73,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapA:
-        m_Texture: {fileID: 2800000, guid: e5ffaaa802ba34040991e3c4d48ec850, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2e3a046d93e62f447801d0e060ad4643, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapB:
@@ -218,8 +218,8 @@ Material:
     - _CausticsSpeed: {r: 1, g: 1, b: -0.2, a: -0.33}
     - _CausticsSpeed3D: {r: 1, g: 1, b: 1, a: 1}
     - _CausticsTiling: {r: 0.2, g: 0.2, b: 0.1, a: 0.1}
-    - _Color: {r: 0.6367924, g: 1, b: 0.84686387, a: 1}
-    - _DepthColor: {r: 0, g: 0.25999996, b: 0.39999998, a: 1}
+    - _Color: {r: 0.31746173, g: 0.5471698, b: 0.45018193, a: 1}
+    - _DepthColor: {r: 0.48598254, g: 0.58051324, b: 0.6320754, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowTiling: {r: 1, g: 1, b: 0, a: 0}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
@@ -243,7 +243,7 @@ Material:
     - _RefractionKey7: {r: -1, g: -1, b: -1, a: -1}
     - _RefractionKey8: {r: -1, g: -1, b: -1, a: -1}
     - _ScatteringColor: {r: 0.2783019, g: 1, b: 0.78321666, a: 1}
-    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.2924528, g: 0.111739054, b: 0.111739054, a: 1}
     - _UnderWaterColor: {r: 0.21226415, g: 0.46418187, b: 0.8490566, a: 0.1764706}
   m_BuildTextureStacks: []
 --- !u!114 &3734885289509101253
