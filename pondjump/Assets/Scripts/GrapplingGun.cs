@@ -25,10 +25,13 @@ public class GrapplingGun : MonoBehaviour
     Transform StuckToo;
     Vector3 StartingPoint;
 
+    AudioManager audioManager;
+
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
         refreshTimer = Refresh;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void Grapple(InputAction.CallbackContext context)
@@ -80,6 +83,7 @@ public class GrapplingGun : MonoBehaviour
 
             if((whatIsGrappleable & (1 << line.transform.gameObject.layer)) != 0)
             {
+                audioManager.Play("Grapple");
                 lineHit = true;
                 refreshTimer = 0;
 
@@ -115,6 +119,7 @@ public class GrapplingGun : MonoBehaviour
         {
             if((whatIsGrappleable & (1 << sphere.transform.gameObject.layer)) != 0)
             {
+                audioManager.Play("Grapple");
                 lineHit = true;
                 refreshTimer = 0;
 
@@ -148,6 +153,7 @@ public class GrapplingGun : MonoBehaviour
 
         if(!lineHit)
         {
+            audioManager.Play("IncorrectPlace");
             GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(255, 0, 0, 255);
         }
     }
@@ -158,6 +164,7 @@ public class GrapplingGun : MonoBehaviour
     /// </summary>
     void StopGrapple()
     {
+        audioManager.Play("Grapple");
         player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsEnd();
         grappling = false;
         lr.positionCount = 0;
