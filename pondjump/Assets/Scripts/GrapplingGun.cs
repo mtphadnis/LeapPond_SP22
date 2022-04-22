@@ -15,7 +15,7 @@ public class GrapplingGun : MonoBehaviour
 
     private LineRenderer lr;
     private Vector3 grapplePoint;
-    public LayerMask whatIsGrappleable;
+    public LayerMask whatIsGrappleable, notIgnored;
     public Transform gunTip, camera, player;
     public float maxDistance;
     private SpringJoint joint;
@@ -25,11 +25,14 @@ public class GrapplingGun : MonoBehaviour
     Transform StuckToo;
     Vector3 StartingPoint;
 
+    AudioManager audioManager;
+
     void Awake()
     {
         lr = GetComponent<LineRenderer>();
         grappleActive = false;
         refreshTimer = Refresh;
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void Grapple(InputAction.CallbackContext context)
@@ -76,11 +79,12 @@ public class GrapplingGun : MonoBehaviour
         RaycastHit sphere, line;
         bool lineHit = false;
 
-        if (Physics.Raycast(camera.position, camera.forward, out line, maxDistance))
+        if (Physics.Raycast(camera.position, camera.forward, out line, maxDistance, notIgnored))
         {
 
             if((whatIsGrappleable & (1 << line.transform.gameObject.layer)) != 0)
             {
+                audioManager.Play("Grapple");
                 lineHit = true;
                 refreshTimer = 0;
 
@@ -112,10 +116,11 @@ public class GrapplingGun : MonoBehaviour
             }
         }
         
-        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out sphere, maxDistance) && !lineHit)
+        if (Physics.SphereCast(camera.position, AimAssistRadius, camera.forward, out sphere, maxDistance, notIgnored) && !lineHit)
         {
             if((whatIsGrappleable & (1 << sphere.transform.gameObject.layer)) != 0)
             {
+                audioManager.Play("Grapple");
                 lineHit = true;
                 refreshTimer = 0;
 
@@ -149,6 +154,7 @@ public class GrapplingGun : MonoBehaviour
 
         if(!lineHit)
         {
+            audioManager.Play("IncorrectPlace");
             GameObject.Find("CrossHairTop").GetComponent<Image>().color = new Color32(255, 0, 0, 255);
         }
     }
@@ -164,6 +170,7 @@ public class GrapplingGun : MonoBehaviour
     /// </summary>
     void StopGrapple()
     {
+        audioManager.Play("Grapple");
         player.gameObject.GetComponent<thirdSoul>().GrapplePhysicsEnd();
         grappling = false;
         lr.positionCount = 0;
